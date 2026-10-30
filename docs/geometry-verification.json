@@ -1,0 +1,13 @@
+{
+  "vertices": 159659,
+  "triangles": 309084,
+  "sourcePolygons": 5,
+  "sourceHoles": 1,
+  "boundaryEdges": 10226,
+  "renderAreaDegreesSquared": 48.48394879963119,
+  "sourceAreaDegreesSquared": 48.48394879957743,
+  "relativePlanarAreaError": 1.1088136325248684e-12,
+  "boundaryHausdorffDegrees": 0.0,
+  "assetBytes": 9518291,
+  "newClientDependencies": 0
+}

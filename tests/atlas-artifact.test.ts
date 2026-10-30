@@ -1,4 +1,4 @@
-import test from 'node:test';
+﻿import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {artifactSurface,ARTIFACT_THICKNESS,RELIEF_HEIGHT_SCALE} from '../app/atlas/artifactGeometry.ts';
@@ -27,7 +27,7 @@ test('solid artifact preserves its geographic top and closes at one level base',
 
 test('new display asset has real source identity, complete valid triangle topology and unchanged coordinate projection',()=>{
   const data=JSON.parse(fs.readFileSync(new URL('../public/data/uzbekistan-artifact-v2.json',import.meta.url),'utf8'));
-  const report=JSON.parse(fs.readFileSync(new URL('../docs/frontend-review/geometry-verification.json',import.meta.url),'utf8'));
+  const report=JSON.parse(fs.readFileSync(new URL('../docs/geometry-verification.json',import.meta.url),'utf8'));
   assert.equal(data.version,2);assert.equal(data.provenance.boundaryUrl,'https://www.openstreetmap.org/relation/196240');assert.equal(data.provenance.tileCount,40);
   assert.equal(report.sourcePolygons,5);assert.equal(report.sourceHoles,1);assert.equal(report.boundaryHausdorffDegrees,0);assert.ok(report.relativePlanarAreaError<1e-10);
   const floats=Buffer.from(data.positionsB64,'base64'),ints=Buffer.from(data.indicesB64,'base64');
@@ -40,3 +40,4 @@ test('new display asset has real source identity, complete valid triangle topolo
   const boundary=Buffer.from(data.boundaryB64,'base64'),pairs=new Uint32Array(boundary.buffer,boundary.byteOffset,boundary.byteLength/4);
   for(const i of pairs){const [lon,lat]=worldToLonLat(positions[i*3],positions[i*3+2]);const [x,z]=lonLatToWorld(lon,lat);assert.ok(Math.abs(x-positions[i*3])<1e-10);assert.ok(Math.abs(z-positions[i*3+2])<1e-10);}
 });
+
