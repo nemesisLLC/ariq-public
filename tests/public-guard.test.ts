@@ -2,8 +2,15 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {publicGuard} from '../cloudflare/public-guard.ts';
 const base='https://ariq-private.nezzoval.workers.dev';
-test('public API blocks AI before any limiter or provider work',async()=>{
- for(const path of ['/api/copilot','/api/irrigation/investigate'])assert.equal((await publicGuard(new Request(base+path),{}))?.status,503);
+test('legacy investigation stays blocked; copilot is guarded by limiter/origin, not hard-blocked',async()=>{
+ assert.equal((await publicGuard(new Request(base+'/api/irrigation/investigate'),{}))?.status,503);
+ // No limiter configured on a public host fails closed even for copilot.
+ assert.equal((await publicGuard(new Request(base+'/api/copilot'),{}))?.status,503);
+ // With a limiter, copilot passes the guard; the route itself enforces
+ // config + server key + Durable Object budget before any model call.
+ const env={API_RATE_LIMITER:{limit:async()=>({success:true})}};
+ assert.equal(await publicGuard(new Request(base+'/api/copilot',{headers:{'CF-Connecting-IP':'192.0.2.1'}}),env),null);
+ assert.equal((await publicGuard(new Request(base+'/api/copilot',{headers:{origin:'https://other.example'}}),env))?.status,403);
  assert.equal(await publicGuard(new Request(base+'/'),{}),null);
 });
 test('public API fails closed and rejects cross-site callers',async()=>{

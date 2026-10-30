@@ -11,6 +11,7 @@ import {FARM_STORAGE,CROP_IDS,parseFarm,request,download,type Farm,type Analysis
 import {parseSearchCoordinates,searchPlaces,type Settlement} from './placeSearch';
 import {Glyph,FieldOutline} from './ui';
 import {local} from './product';
+import {publishCopilotContext} from '../copilot/context-bus';
 import FieldWorkspace from './FieldWorkspace';
 import './journey.css';
 import './product-shell.css';
@@ -42,6 +43,7 @@ export default function FarmJourney({language,onLanguage,onBack,initialCenter}:{
  const hadFarm=useRef(false);
  useEffect(()=>{if(!ready)return;try{localStorage.setItem('ariq-units',units);/* Example mode is read-only against storage: exploring the example must never overwrite or delete the visitor's saved real farm, so persistence is skipped entirely while it is active. */if(exampleMode)return;if(farm){hadFarm.current=true;localStorage.setItem('ariq-field-v2',JSON.stringify(farm));localStorage.setItem(FARM_STORAGE,JSON.stringify(farm));}else if(hadFarm.current){localStorage.removeItem('ariq-field-v2');localStorage.removeItem(FARM_STORAGE);}if(boundary&&validation?.ok){hadFarm.current=true;localStorage.setItem('ariq-field-draft-v1',JSON.stringify({boundary,crop,planting,location:name}));}else if(hadFarm.current)localStorage.removeItem('ariq-field-draft-v1');}catch{}},[ready,boundary,crop,planting,seed,name,units,exampleMode]);
  useEffect(()=>{title.current?.focus();},[step,tool]);
+ useEffect(()=>{const [lon,lat]=boundary?interiorPoint(boundary):center;publishCopilotContext({view:'farm',step,cropId:crop||undefined,plantingDate:planting||undefined,hasBoundary:!!boundary,latitude:lat,longitude:lon,areaHa:boundary?area:undefined,tool:tool??undefined,region:evidence?.location?.region??undefined,soilBasis:evidence?.soil?.estimateBasis??undefined});},[step,crop,planting,boundary,tool,evidence,center,area]);
  useEffect(()=>{const close=(e:KeyboardEvent)=>{if(e.key==='Escape')setTool(null);};window.addEventListener('keydown',close);return()=>window.removeEventListener('keydown',close);},[]);
  useEffect(()=>{evidenceActive.current?.abort();setEvidence(null);if(!boundary||!validation?.ok)return;const c=new AbortController();evidenceActive.current=c;const [lon,lat]=interiorPoint(boundary),params=new URLSearchParams({lat:String(lat),lon:String(lon),polygon:JSON.stringify(boundary)});request<FarmEvidence>(`/api/farm-evidence?${params}`,undefined,c.signal).then(r=>{if(!c.signal.aborted)setEvidence(r);}).catch(()=>{});return()=>c.abort();},[boundary]);
  const choose=(p:LonLat,label:string)=>{setExampleMode(false);invalidate();setCenter(p);setBoundary(null);setName(label);setStep(1);};

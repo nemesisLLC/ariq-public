@@ -20,7 +20,7 @@ import { assessGroundwaterScenario, groundwaterTrend, type GroundwaterObservatio
 import { estimateWaterRetention, classifySoilTest, nutrientBalance, leachingRisk, type SoilTestInput } from '../lib/soil-fertility.ts';
 import { SOURCE_REGISTRY, refreshAll, freshnessReport, type RefreshStore, type Snapshot } from '../lib/data-refresh.ts';
 
-type Env = { ARIQ_COPILOT_ENABLED?: string };
+type Env = Record<string, string | undefined> & { COPILOT_BUDGET?: { idFromName(name: string): unknown; get(id: unknown): { fetch(request: Request): Promise<Response> } } };
 // Minimal ambient shapes so the repo typecheck does not require
 // @cloudflare/workers-types; wrangler supplies the real ones at runtime.
 type ExecutionContext = { waitUntil: (p: Promise<unknown>) => void; passThroughOnException?: () => void };
@@ -70,8 +70,49 @@ export default {
         const view: RefreshStore = { get: (id) => snapshots.get(id) ?? null, set: () => {} };
         return json({ kind: 'data-freshness', generatedAt: new Date().toISOString(), sources: freshnessReport(view, Date.now()) });
       }
+      if (url.pathname === '/api/copilot' && request.method === 'GET') {
+        // Public status probe: never invokes the model, never spends.
+        const { resolveCopilotConfig } = await import('../lib/copilot/config.ts');
+        const config = resolveCopilotConfig(_env);
+        let budget: unknown = null;
+        if (_env.COPILOT_BUDGET) {
+          try {
+            const stub = _env.COPILOT_BUDGET.get(_env.COPILOT_BUDGET.idFromName('global'));
+            const r = await stub.fetch(new Request('https://budget/status', { method: 'POST', body: JSON.stringify({ op: 'status', caps: { totalMicroUsd: config.budgetTotalMicroUsd, dailyMicroUsd: config.budgetDailyMicroUsd } }) }));
+            if (r.ok) budget = await r.json();
+          } catch { /* status only; POST still fails closed */ }
+        }
+        return json({ kind: 'copilot-status', available: config.enabled && !!config.apiKey && !!_env.COPILOT_BUDGET, model: config.model, contributor: config.contributor, budget });
+      }
       if (url.pathname === '/api/copilot') {
-        return json({ error: 'The AI Copilot is disabled pending an approved spending cap and distributed budget enforcement.', kind: 'copilot-disabled' }, 503);
+        // Budget-enforced Meta Copilot. Fails closed at every layer:
+        // unified config off, no server key, or no budget object => 503
+        // and NO model call. Reservation precedes any provider request;
+        // reconciliation uses actual token usage from the response.
+        const { resolveCopilotConfig, reserveMicroUsd, costMicroUsd } = await import('../lib/copilot/config.ts');
+        const config = resolveCopilotConfig(_env);
+        if (!config.enabled || !config.apiKey || !_env.COPILOT_BUDGET) {
+          return json({ error: 'The AI Copilot is unavailable: it requires explicit enablement, a server-side Meta key and the budget object.', kind: 'copilot-disabled' }, 503);
+        }
+        const caps = { totalMicroUsd: config.budgetTotalMicroUsd, dailyMicroUsd: config.budgetDailyMicroUsd };
+        const stub = _env.COPILOT_BUDGET.get(_env.COPILOT_BUDGET.idFromName('global'));
+        const reservationId = `r-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+        const reserved = await stub.fetch(new Request('https://budget/reserve', { method: 'POST', body: JSON.stringify({ op: 'reserve', id: reservationId, amountMicroUsd: reserveMicroUsd(config), caps }) }));
+        if (!reserved.ok) {
+          const why = await reserved.json().catch(() => null) as { reason?: string } | null;
+          return json({ error: 'The Copilot usage budget is exhausted. Deterministic ARIQ tools remain available.', kind: 'copilot-budget-exhausted', reason: why?.reason ?? 'budget' }, 429);
+        }
+        try {
+          const { runCopilot } = await import('../lib/copilot/orchestrator.ts');
+          const body = await readBoundedJson(request, 16384);
+          const result = await runCopilot(body, { apiKey: config.apiKey, enabled: true, model: config.model, maxModelCalls: config.maxModelCalls, maxToolCalls: config.maxToolCalls }) as { usage?: { totalUsage?: { inputTokens: number; cachedTokens: number; outputTokens: number } } };
+          const actual = costMicroUsd(result.usage?.totalUsage, config.model);
+          await stub.fetch(new Request('https://budget/reconcile', { method: 'POST', body: JSON.stringify({ op: 'reconcile', id: reservationId, actualMicroUsd: actual }) }));
+          return json({ ...result, budget: { model: config.model, contributor: config.contributor, reconciledMicroUsd: actual } });
+        } catch (error) {
+          await stub.fetch(new Request('https://budget/reconcile', { method: 'POST', body: JSON.stringify({ op: 'reconcile', id: reservationId, actualMicroUsd: 0 }) })).catch(() => {});
+          throw error;
+        }
       }
       if (request.method === 'POST' && url.pathname === '/api/calculate/plan') {
         return json(calculatePlan(await readBoundedJson(request, 65536)));

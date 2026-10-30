@@ -15,9 +15,19 @@
     "not_found_handling": "none"
   },
   "vars": {
-    "ARIQ_COPILOT_ENABLED": "false",
-    "ARIQ_AI_ENABLED": "false"
+    "ARIQ_COPILOT_ENABLED": "true",
+    "META_MODEL": "muse-spark-1.3",
+    "COPILOT_BUDGET_TOTAL_USD": "5",
+    "COPILOT_BUDGET_DAILY_USD": "1"
   },
+  "durable_objects": {
+    "bindings": [
+      { "name": "COPILOT_BUDGET", "class_name": "CopilotBudgetDO" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1-copilot-budget", "new_sqlite_classes": ["CopilotBudgetDO"] }
+  ],
   "triggers": {
     "crons": [
       "15 */6 * * *"

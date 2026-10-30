@@ -5,7 +5,11 @@ export type PublicGuardEnv = {API_RATE_LIMITER?:Limiter};
 export async function publicGuard(request:Request,env:PublicGuardEnv):Promise<Response|null>{
   const path=new URL(request.url).pathname;
   if(!path.startsWith('/api/'))return null;
-  if(path==='/api/copilot'||path==='/api/irrigation/investigate')return Response.json({error:'AI is disabled.',kind:'copilot-disabled'},{status:503});
+  // The legacy investigation endpoint stays hard-disabled. /api/copilot is
+  // no longer blocked here: it falls through to the origin + rate-limiter
+  // checks below, and the route itself fails closed unless the unified
+  // config, a server-side key and the Durable Object budget all exist.
+  if(path==='/api/irrigation/investigate')return Response.json({error:'AI is disabled.',kind:'copilot-disabled'},{status:503});
   const ip=request.headers.get('CF-Connecting-IP');
   // Binding is mandatory on the deployed origin. Fail closed on misconfiguration.
   if(!env.API_RATE_LIMITER){

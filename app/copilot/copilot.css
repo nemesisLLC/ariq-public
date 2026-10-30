@@ -1,0 +1,52 @@
+.copilot-launcher{position:fixed;right:22px;bottom:64px;z-index:40;display:flex;align-items:center;gap:9px;background:#f4f1e8;border:1px solid #b6aca0;border-radius:999px;color:#173f49;padding:9px 16px 9px 11px;font:600 12px 'Onest ARIQ',sans-serif;cursor:pointer;box-shadow:0 10px 30px #173f4922;transition:transform .25s ease,background .25s ease}
+.copilot-launcher:hover{background:#ece7da;transform:translateY(-1px)}
+.copilot-launcher svg{width:20px;height:20px;color:#a08048}
+.copilot-launcher i{width:7px;height:7px;border-radius:50%;background:#7d9b76}
+.copilot-panel{position:fixed;z-index:41;display:flex;flex-direction:column;background:#f7f4ec;border:1px solid #b6aca0;border-radius:14px;box-shadow:0 24px 60px #173f4933;color:#173f49;font-family:'Onest ARIQ',sans-serif;overflow:hidden}
+.copilot-panel.dock-right{right:0;top:0;bottom:0;width:min(420px,100vw);border-radius:0}
+.copilot-panel.dock-left{left:0;top:0;bottom:0;width:min(420px,100vw);border-radius:0}
+.copilot-panel>header{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid #ddd5c6;cursor:grab;touch-action:none;background:#f2efe6}
+.copilot-panel>header:active{cursor:grabbing}
+.copilot-id{display:flex;align-items:center;gap:9px}
+.copilot-id svg{width:22px;height:22px;color:#a08048}
+.copilot-id strong{display:block;font-size:13px;letter-spacing:.04em}
+.copilot-id small{display:block;font-size:10px;color:#5b726e}
+.copilot-id i{width:7px;height:7px;border-radius:50%;background:#c3bcb6}
+.copilot-id i.on{background:#5f8f5a}
+.copilot-win{display:flex;gap:4px}
+.copilot-win button{width:32px;height:32px;border:1px solid transparent;background:transparent;border-radius:8px;color:#46605e;cursor:pointer;font-size:14px}
+.copilot-win button:hover{background:#e7e1d2}
+.copilot-privacy{font-size:10.5px;line-height:1.5;color:#5b726e;padding:10px 14px 0;margin:0}
+.copilot-context{margin:8px 14px 0;font-size:10px;letter-spacing:.05em;text-transform:uppercase;color:#8a6d3b}
+.copilot-scroll{flex:1;overflow:auto;padding:12px 14px;display:flex;flex-direction:column;gap:10px;min-height:120px}
+.copilot-suggest{display:flex;flex-direction:column;gap:6px}
+.copilot-suggest span{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#8a6d3b}
+.copilot-suggest button{text-align:left;background:#fffdf8;border:1px solid #ddd5c6;border-radius:9px;padding:9px 11px;font:12px 'Onest ARIQ',sans-serif;color:#29454a;cursor:pointer}
+.copilot-suggest button:hover{border-color:#477f87}
+.copilot-turn{max-width:92%;padding:10px 12px;border-radius:11px;font-size:12.5px;line-height:1.55}
+.copilot-turn p{margin:0;white-space:pre-wrap}
+.copilot-turn strong{display:block;margin-bottom:4px}
+.copilot-turn small{display:block;margin-top:6px;color:#5b726e;font-size:10.5px}
+.copilot-turn.user{align-self:flex-end;background:#173f49;color:#f2efe6}
+.copilot-turn.assistant{align-self:flex-start;background:#fffdf8;border:1px solid #e0d8c8}
+.copilot-thinking{font-size:12px;color:#5b726e}
+.copilot-actions{display:flex;gap:6px;flex-wrap:wrap}
+.copilot-actions button{background:#177e91;color:#fff;border:0;border-radius:999px;padding:8px 13px;font:600 11px 'Onest ARIQ',sans-serif;cursor:pointer}
+.copilot-inspect summary{cursor:pointer;font-size:11px;color:#376c76;min-height:32px;align-content:center}
+.copilot-inspect pre{font-size:9.5px;white-space:pre-wrap;overflow-wrap:anywhere;background:#f2efe6;border-radius:8px;padding:8px;max-height:220px;overflow:auto}
+.copilot-disclaimer{font-size:10px;color:#8a7a5c;padding:0 14px;margin:0 0 8px}
+.copilot-form{display:flex;gap:7px;padding:10px 12px;border-top:1px solid #ddd5c6;background:#f2efe6}
+.copilot-form input{flex:1;min-width:0;border:1px solid #c9c0ae;border-radius:9px;padding:10px;background:#fffdf8;font:12.5px 'Onest ARIQ',sans-serif;color:#173f49}
+.copilot-form button{background:#173f49;color:#f2efe6;border:0;border-radius:9px;padding:10px 15px;font:600 12px 'Onest ARIQ',sans-serif;cursor:pointer}
+.copilot-form button:disabled{opacity:.45;cursor:default}
+.copilot-resize{position:absolute;right:2px;bottom:2px;width:18px;height:18px;cursor:nwse-resize;touch-action:none}
+.copilot-resize::after{content:'';position:absolute;right:4px;bottom:4px;width:8px;height:8px;border-right:2px solid #b6aca0;border-bottom:2px solid #b6aca0}
+.copilot-panel :is(button,input,summary):focus-visible{outline:2px solid #177e91;outline-offset:2px}
+@media(max-width:760px){
+ .copilot-launcher{right:14px;bottom:110px}
+ .copilot-panel,.copilot-panel.dock-left,.copilot-panel.dock-right{left:0!important;right:0!important;top:auto!important;bottom:0;width:100%!important;height:min(72dvh,640px)!important;border-radius:16px 16px 0 0}
+ .copilot-panel.is-min{height:auto!important}
+ .copilot-panel>header{cursor:default}
+ .copilot-resize{display:none}
+}
+@media(prefers-reduced-motion:reduce){.copilot-launcher{transition:none}}

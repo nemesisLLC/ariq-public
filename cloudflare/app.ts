@@ -15,6 +15,7 @@ import {initializeSoilGrid} from '../lib/soil-grid';
 import {publicGuard,type PublicGuardEnv} from './public-guard';
 
 initializeSoilGrid();
+export {CopilotBudgetDO} from './copilot-budget-do';
 
 const scientificRoutes: Record<string,(request:Request)=>Promise<Response>> = {
   '/api/irrigation/recommendation':recommendation,
