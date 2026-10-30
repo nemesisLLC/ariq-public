@@ -20,6 +20,10 @@ export type CopilotContextSnapshot = {
   tool?: string;
   region?: string;
   soilBasis?: string;
+  /** Deterministic workflow state — updated locally, never via the paid model. */
+  analysisStatus?: 'none' | 'loading' | 'ready' | 'error';
+  hasProfile?: boolean;
+  placeName?: string;
 };
 
 let snapshot: CopilotContextSnapshot = { view: 'atlas' };
@@ -31,7 +35,12 @@ export function publishCopilotContext(next: CopilotContextSnapshot) {
 export function readCopilotContext() { return snapshot; }
 export function subscribeCopilotContext(l: () => void) { listeners.add(l); return () => { listeners.delete(l); }; }
 
-export type ChatTurn = { role: 'user' | 'assistant'; text: string; title?: string; caveats?: string[]; tools?: string[]; unavailable?: boolean };
+export type ResultCard =
+  | { kind: 'waterway'; name: string; type: string; distanceKm?: number; region?: string }
+  | { kind: 'demand'; etCropMm?: number; deficitMm?: number; stressDate?: string; missing?: string[] }
+  | { kind: 'scenario'; label: string; retainedPct?: number; note?: string };
+
+export type ChatTurn = { role: 'user' | 'assistant'; text: string; title?: string; caveats?: string[]; tools?: string[]; unavailable?: boolean; cards?: ResultCard[]; actions?: { type: string; latitude?: number; longitude?: number; features?: { id: string; coordinates: [number, number] }[] }[]; ctx?: string };
 export const conversationStore: { turns: ChatTurn[] } = { turns: [] };
 /** Panel open state also survives the atlas <-> journey remount. */
 export const copilotUiStore: { open: boolean } = { open: false };

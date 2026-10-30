@@ -3,29 +3,14 @@ import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from '
 import type { Language } from '../../lib/i18n-labels';
 import type { UnitSystem } from '../../lib/units';
 import { conversationStore, copilotUiStore, readCopilotContext, subscribeCopilotContext, type ChatTurn, type CopilotContextSnapshot } from './context-bus';
+import { buildCards, proactiveSuggestions } from './cards';
 import './copilot.css';
 
-export type CopilotAction = { type: string; latitude?: number; longitude?: number };
-
 const STR = {
-  en: { name: 'ARIQ Copilot', sub: 'Water intelligence assistant', open: 'Open ARIQ Copilot', close: 'Close', minimize: 'Minimize', restore: 'Restore', dock: 'Dock side', send: 'Send', ask: 'Ask about your land and water…', thinking: 'Working with ARIQ’s scientific tools…', unavailable: 'Copilot is temporarily unavailable. ARIQ’s calculators and atlas keep working.', budget: 'The Copilot usage budget is exhausted for now. ARIQ’s scientific tools remain available.', privacy: 'When you ask, the relevant field facts below are sent to Meta’s model. Numbers always come from ARIQ’s deterministic engines.', sending: 'Context sent to the model', inspect: 'Inspect underlying ARIQ results', tools: 'Tools used', suggestions: 'Suggested questions', disclaimer: 'Modelled estimates are labelled as modelled. Proximity to water never proves access or rights.' },
-  uz: { name: 'ARIQ Copilot', sub: 'Suv intellekti yordamchisi', open: 'ARIQ Copilotni ochish', close: 'Yopish', minimize: 'Yig‘ish', restore: 'Tiklash', dock: 'Yon tomonga mahkamlash', send: 'Yuborish', ask: 'Yeringiz va suvingiz haqida so‘rang…', thinking: 'ARIQ ilmiy vositalari bilan ishlayapman…', unavailable: 'Copilot vaqtincha mavjud emas. ARIQ kalkulyatorlari va atlasi ishlashda davom etadi.', budget: 'Copilot byudjeti hozircha tugadi. ARIQ ilmiy vositalari mavjud.', privacy: 'Savol berganingizda, quyidagi dala ma’lumotlari Meta modeliga yuboriladi. Raqamlar doimo ARIQ deterministik dvigatellaridan olinadi.', sending: 'Modelga yuborilgan kontekst', inspect: 'ARIQ natijalarini ko‘rish', tools: 'Ishlatilgan vositalar', suggestions: 'Tavsiya etilgan savollar', disclaimer: 'Modellashtirilgan baholar shunday belgilanadi. Suvga yaqinlik huquq yoki foydalanishni isbotlamaydi.' },
-  ru: { name: 'ARIQ Copilot', sub: 'Ассистент водного интеллекта', open: 'Открыть ARIQ Copilot', close: 'Закрыть', minimize: 'Свернуть', restore: 'Развернуть', dock: 'Закрепить сбоку', send: 'Отправить', ask: 'Спросите о вашей земле и воде…', thinking: 'Работаю с научными инструментами ARIQ…', unavailable: 'Copilot временно недоступен. Калькуляторы и атлас ARIQ продолжают работать.', budget: 'Бюджет Copilot на сейчас исчерпан. Научные инструменты ARIQ доступны.', privacy: 'Когда вы задаёте вопрос, приведённые ниже данные поля отправляются модели Meta. Числа всегда поступают из детерминированных движков ARIQ.', sending: 'Контекст, отправленный модели', inspect: 'Посмотреть исходные результаты ARIQ', tools: 'Использованные инструменты', suggestions: 'Предлагаемые вопросы', disclaimer: 'Модельные оценки помечены как модельные. Близость к воде не доказывает доступ или права.' },
+  en: { name: 'ARIQ Copilot', sub: 'Water intelligence assistant', open: 'Open ARIQ Copilot', close: 'Close', minimize: 'Minimize', restore: 'Restore', dock: 'Dock side', send: 'Send', ask: 'Ask about your land and water…', thinking: 'Working with ARIQ’s scientific tools…', unavailable: 'Copilot is temporarily unavailable. ARIQ’s calculators and atlas keep working.', budget: 'The Copilot usage budget is exhausted for now. ARIQ’s scientific tools remain available.', privacy: 'When you ask, the relevant field facts below are sent to Meta’s model. Numbers always come from ARIQ’s deterministic engines.', sending: 'Context sent to the model', inspect: 'Advanced details (developer)', tools: 'Tools used', suggestions: 'Suggested questions', disclaimer: 'Modelled estimates are labelled as modelled. Proximity to water never proves access or rights.' },
+  uz: { name: 'ARIQ Copilot', sub: 'Suv intellekti yordamchisi', open: 'ARIQ Copilotni ochish', close: 'Yopish', minimize: 'Yig‘ish', restore: 'Tiklash', dock: 'Yon tomonga mahkamlash', send: 'Yuborish', ask: 'Yeringiz va suvingiz haqida so‘rang…', thinking: 'ARIQ ilmiy vositalari bilan ishlayapman…', unavailable: 'Copilot vaqtincha mavjud emas. ARIQ kalkulyatorlari va atlasi ishlashda davom etadi.', budget: 'Copilot byudjeti hozircha tugadi. ARIQ ilmiy vositalari mavjud.', privacy: 'Savol berganingizda, quyidagi dala ma’lumotlari Meta modeliga yuboriladi. Raqamlar doimo ARIQ deterministik dvigatellaridan olinadi.', sending: 'Modelga yuborilgan kontekst', inspect: 'Kengaytirilgan tafsilotlar (dasturchi)', tools: 'Ishlatilgan vositalar', suggestions: 'Tavsiya etilgan savollar', disclaimer: 'Modellashtirilgan baholar shunday belgilanadi. Suvga yaqinlik huquq yoki foydalanishni isbotlamaydi.' },
+  ru: { name: 'ARIQ Copilot', sub: 'Ассистент водного интеллекта', open: 'Открыть ARIQ Copilot', close: 'Закрыть', minimize: 'Свернуть', restore: 'Развернуть', dock: 'Закрепить сбоку', send: 'Отправить', ask: 'Спросите о вашей земле и воде…', thinking: 'Работаю с научными инструментами ARIQ…', unavailable: 'Copilot временно недоступен. Калькуляторы и атлас ARIQ продолжают работать.', budget: 'Бюджет Copilot на сейчас исчерпан. Научные инструменты ARIQ доступны.', privacy: 'Когда вы задаёте вопрос, приведённые ниже данные поля отправляются модели Meta. Числа всегда поступают из детерминированных движков ARIQ.', sending: 'Контекст, отправленный модели', inspect: 'Дополнительно (для разработчика)', tools: 'Использованные инструменты', suggestions: 'Предлагаемые вопросы', disclaimer: 'Модельные оценки помечены как модельные. Близость к воде не доказывает доступ или права.' },
 } as const;
-
-const SUGGESTIONS: Record<string, { en: string; uz: string; ru: string }[]> = {
-  atlas: [
-    { en: 'Help me find a field', uz: 'Dala topishga yordam bering', ru: 'Помогите найти поле' },
-    { en: 'Show documented water infrastructure near a place I pick', uz: 'Tanlagan joyim yaqinidagi hujjatlashtirilgan suv infratuzilmasini ko‘rsating', ru: 'Покажите документированную водную инфраструктуру рядом с выбранным местом' },
-    { en: 'Explain how ARIQ calculates irrigation needs', uz: 'ARIQ sug‘orish ehtiyojini qanday hisoblashini tushuntiring', ru: 'Объясните, как ARIQ рассчитывает потребность в поливе' },
-  ],
-  farm: [
-    { en: 'Explain my water requirements', uz: 'Suv talablarimni tushuntiring', ru: 'Объясните мои потребности в воде' },
-    { en: 'What is the biggest uncertainty in my field evidence?', uz: 'Dala dalillarimdagi eng katta noaniqlik nima?', ru: 'Какая главная неопределённость в данных моего поля?' },
-    { en: 'When could my crop experience water stress?', uz: 'Ekinim qachon suv stressiga uchrashi mumkin?', ru: 'Когда моя культура может испытать водный стресс?' },
-    { en: 'What happens during a drought with less irrigation supply?', uz: 'Sug‘orish suvi kamaysa, qurg‘oqchilikda nima bo‘ladi?', ru: 'Что будет в засуху при меньшем объёме полива?' },
-  ],
-};
 
 type UiState = { x: number; y: number; w: number; h: number; dock: 'none' | 'left' | 'right'; minimized: boolean };
 const UI_KEY = 'ariq-copilot-ui-v1';
@@ -34,7 +19,7 @@ const loadUi = (): UiState => { try { const raw = localStorage.getItem(UI_KEY); 
 export default function Copilot({ language, units, atlasContext, onAction }: {
   language: Language; units: UnitSystem;
   atlasContext: CopilotContextSnapshot;
-  onAction?: (a: CopilotAction) => void;
+  onAction?: (a: { type: string; latitude?: number; longitude?: number }) => void;
 }) {
   const s = STR[language];
   const bus = useSyncExternalStore(subscribeCopilotContext, readCopilotContext, readCopilotContext);
@@ -47,7 +32,6 @@ export default function Copilot({ language, units, atlasContext, onAction }: {
   const [busy, setBusy] = useState(false);
   const [status, setStatus] = useState<'unknown' | 'available' | 'unavailable'>('unknown');
   const [lastResults, setLastResults] = useState<unknown>(null);
-  const [lastActions, setLastActions] = useState<CopilotAction[]>([]);
   const drag = useRef<{ dx: number; dy: number } | null>(null);
   const resize = useRef<{ x: number; y: number; w: number; h: number } | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -61,7 +45,10 @@ export default function Copilot({ language, units, atlasContext, onAction }: {
     fetch('/api/copilot').then(r => r.json()).then(j => setStatus(j.available ? 'available' : 'unavailable')).catch(() => setStatus('unavailable'));
   }, [open, status]);
 
-  const suggestions = SUGGESTIONS[context.view === 'farm' ? 'farm' : 'atlas'];
+  const suggestions = proactiveSuggestions(context, language);
+  const ctxLabel = [context.view === 'farm' ? (context.region ?? 'farm') : 'atlas', context.cropId].filter(Boolean).join(' · ');
+  const sig = `${context.view}|${context.step ?? ''}|${context.tool ?? ''}|${context.analysisStatus ?? ''}|${context.cropId ?? ''}|${context.hasBoundary ? 1 : 0}`;
+  const [dismissedSig, setDismissedSig] = useState('');
 
   const send = useCallback(async (question: string) => {
     const q = question.trim();
@@ -85,12 +72,12 @@ export default function Copilot({ language, units, atlasContext, onAction }: {
       const ex = data.explanation as { title?: string; summary?: string; caveats?: string[] } | undefined;
       const trace = (data.trace as { tool?: string; status: string }[] | undefined)?.filter(t => t.tool && t.status === 'completed').map(t => t.tool!) ?? [];
       setLastResults(data.toolResults ?? null);
-      setLastActions((data.actions as CopilotAction[] | undefined) ?? []);
-      setTurns(t => [...t, { role: 'assistant', text: ex?.summary ?? 'ARIQ', title: ex?.title, caveats: ex?.caveats, tools: trace }]);
+      const actions = (data.actions as ChatTurn['actions']) ?? [];
+      setTurns(t => [...t, { role: 'assistant', text: ex?.summary ?? 'ARIQ', title: ex?.title, caveats: ex?.caveats, tools: trace, cards: buildCards(data.toolResults, language), actions, ctx: ctxLabel }]);
     } catch {
       setTurns(t => [...t, { role: 'assistant', text: s.unavailable, unavailable: true }]);
     } finally { setBusy(false); }
-  }, [busy, turns, language, units, context, s]);
+  }, [busy, turns, language, units, context, s, ctxLabel]);
 
   if (!open) return <button className="copilot-launcher" onClick={() => setOpen(true)} aria-label={s.open}><svg viewBox="0 0 40 40" aria-hidden="true"><path d="m20 3 5 11 12 6-12 5-5 12-5-12-12-5 12-6Z" fill="none" stroke="currentColor" strokeWidth="1.6" /><path d="M20 11v18M11 20h18" stroke="currentColor" strokeWidth="1.2" /></svg><span>{s.name}</span><i aria-hidden="true" /></button>;
 
@@ -112,15 +99,27 @@ export default function Copilot({ language, units, atlasContext, onAction }: {
       <p className="copilot-privacy">{s.privacy}</p>
       <div className="copilot-context" aria-label={s.sending}>{[context.view, context.region, context.cropId, context.plantingDate, context.hasBoundary ? 'boundary ✓' : null, context.tool].filter(Boolean).join(' · ') || context.view}</div>
       <div className="copilot-scroll" ref={scrollRef}>
-        {turns.length === 0 && <div className="copilot-suggest"><span>{s.suggestions}</span>{suggestions.map(q => <button key={q.en} onClick={() => void send(q[language])}>{q[language]}</button>)}</div>}
-        {turns.map((t, i) => <article key={i} className={`copilot-turn ${t.role}`}>
+        {dismissedSig !== sig && <div className="copilot-suggest"><span>{s.suggestions}</span><button className="copilot-dismiss" aria-label="×" onClick={() => setDismissedSig(sig)}>×</button>{suggestions.map(sg => <button key={sg.q} onClick={() => sg.action ? dispatchEvent(new CustomEvent('ariq-open-tool', { detail: { tool: sg.action } })) : void send(sg.q)}>{sg.q}</button>)}</div>}
+        {turns.map((t, i) => <div key={i}>
+          {t.ctx && i > 0 && turns[i - 1].ctx !== t.ctx && <div className="copilot-ctx-divider">{t.ctx}</div>}
+          <article className={`copilot-turn ${t.role}`}>
           {t.title && <strong>{t.title}</strong>}
           <p>{t.text}</p>
+          {t.cards?.map((c, j) => c.kind === 'waterway'
+            ? <div key={j} className="copilot-card"><strong>{c.name}</strong><small>{c.type}{c.distanceKm !== undefined ? ` · ${c.distanceKm.toFixed(2)} km` : ''}{c.region ? ` · ${c.region}` : ''}</small></div>
+            : c.kind === 'demand'
+              ? <div key={j} className="copilot-card"><strong>{language === 'uz' ? 'Suv talabi' : language === 'ru' ? 'Потребность в воде' : 'Water demand'}</strong><small>{c.etCropMm !== undefined ? `ETc ${Math.round(c.etCropMm)} mm` : ''}{c.deficitMm !== undefined ? ` · ${language === 'ru' ? 'дефицит' : 'deficit'} ${Math.round(c.deficitMm)} mm` : ''}{c.stressDate ? ` · ${language === 'ru' ? 'стресс с' : 'stress from'} ${c.stressDate}` : ''}</small>{c.missing && c.missing.length > 0 && <small>{language === 'ru' ? 'Не хватает' : language === 'uz' ? 'Yetishmaydi' : 'Missing'}: {c.missing.join(', ')}</small>}</div>
+              : <div key={j} className="copilot-card scenario"><strong>{c.label}</strong>{c.retainedPct !== undefined && <span className="copilot-pct">{c.retainedPct}%</span>}{c.note && <small>{c.note}</small>}</div>)}
+          {t.actions?.some(a => ['flyToLocation', 'highlightWaterSources', 'showScenarioComparison', 'displayYieldImpact', 'animateSeasonTimeline', 'displayForecast'].includes(a.type)) && <div className="copilot-actions">
+            {t.actions.filter(a => a.type === 'flyToLocation').map((a, j) => <button key={`f${j}`} onClick={() => onAction?.(a)}>◎ {language === 'uz' ? 'Xaritada ko‘rsatish' : language === 'ru' ? 'Показать на карте' : 'Show on map'}</button>)}
+            {t.actions.filter(a => a.type === 'highlightWaterSources').map((a, j) => <button key={`h${j}`} onClick={() => { const f = a.features?.[0]; if (f) onAction?.({ type: 'flyToLocation', longitude: f.coordinates[0], latitude: f.coordinates[1] }); }}>◎ {language === 'uz' ? 'Suv manbaini belgilash' : language === 'ru' ? 'Выделить источник воды' : 'Highlight water source'}</button>)}
+            {t.actions.some(a => ['showScenarioComparison', 'displayYieldImpact', 'animateSeasonTimeline'].includes(a.type)) && <button onClick={() => dispatchEvent(new CustomEvent('ariq-open-tool', { detail: { tool: 'futures' } }))}>↗ {language === 'uz' ? 'Water Futures’da ochish' : language === 'ru' ? 'Открыть в Water Futures' : 'Open in Water Futures'}</button>}
+            {t.actions.some(a => a.type === 'displayForecast') && <button onClick={() => dispatchEvent(new CustomEvent('ariq-open-tool', { detail: { tool: null } }))}>↗ {language === 'uz' ? 'Dala tahlilini ko‘rish' : language === 'ru' ? 'Посмотреть анализ поля' : 'View field analysis'}</button>}
+          </div>}
           {t.tools && t.tools.length > 0 && <small>{s.tools}: {t.tools.join(', ')}</small>}
           {t.caveats?.map(c => <small key={c} className="copilot-caveat">{c}</small>)}
-        </article>)}
-        {busy && <p className="copilot-thinking" role="status">{s.thinking}</p>}
-        {lastActions.length > 0 && <div className="copilot-actions">{lastActions.filter(a => a.type === 'flyToLocation').map((a, i) => <button key={i} onClick={() => onAction?.(a)}>◎ {language === 'uz' ? 'Xaritada ko‘rsatish' : language === 'ru' ? 'Показать на карте' : 'Show on map'}</button>)}</div>}
+          </article>
+        </div>)}
         {lastResults != null && <details className="copilot-inspect"><summary>{s.inspect}</summary><pre>{JSON.stringify(lastResults, null, 2).slice(0, 6000)}</pre></details>}
       </div>
       <p className="copilot-disclaimer">{s.disclaimer}</p>

@@ -50,3 +50,13 @@
  .copilot-resize{display:none}
 }
 @media(prefers-reduced-motion:reduce){.copilot-launcher{transition:none}}
+
+.copilot-card{background:#fffdf8;border:1px solid #e0d8c8;border-left:3px solid #477f87;border-radius:9px;padding:8px 10px;margin-top:7px}
+.copilot-card strong{display:block;font-size:12px}
+.copilot-card small{display:block;color:#5b726e;font-size:10.5px;margin-top:2px}
+.copilot-card.scenario{border-left-color:#a08048}
+.copilot-pct{display:block;font-size:19px;font-weight:650;color:#173f49}
+.copilot-ctx-divider{text-align:center;font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:#8a6d3b;margin:8px 0 2px}
+.copilot-suggest{position:relative}
+.copilot-dismiss{position:absolute;right:2px;top:0;width:24px!important;height:24px;padding:0!important;text-align:center!important;background:transparent!important;border:0!important;color:#8a6d3b}
+
