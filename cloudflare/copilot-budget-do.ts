@@ -30,7 +30,15 @@ export class CopilotBudgetDO {
   private load(): BudgetState {
     const rows = this.state.storage.sql.exec('SELECT payload FROM budget WHERE id=1').toArray();
     if (!rows.length) return emptyBudget(day());
-    try { return JSON.parse(rows[0].payload as string) as BudgetState; } catch { return emptyBudget(day()); }
+    // Malformed stored state must NEVER reset the ledger to zero: that
+    // would silently replenish the spending allowance. Fail closed —
+    // the fetch handler converts this throw into HTTP 500 and callers
+    // refuse the model call.
+    const parsed = JSON.parse(rows[0].payload as string) as BudgetState;
+    if (typeof parsed.totalSpentMicroUsd !== 'number' || typeof parsed.daySpentMicroUsd !== 'number' || typeof parsed.reservations !== 'object' || parsed.reservations === null) {
+      throw new Error('corrupt budget state');
+    }
+    return parsed;
   }
   private save(s: BudgetState) {
     this.state.storage.sql.exec('INSERT INTO budget (id,payload) VALUES (1,?) ON CONFLICT(id) DO UPDATE SET payload=excluded.payload', JSON.stringify(s));

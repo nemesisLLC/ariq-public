@@ -53,6 +53,7 @@ export default function Copilot({ language, units, atlasContext, onAction }: {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => { try { localStorage.setItem(UI_KEY, JSON.stringify(ui)); } catch {} }, [ui]);
+  useEffect(() => { const openIt = () => setOpen(true); addEventListener('ariq-open-copilot', openIt); return () => removeEventListener('ariq-open-copilot', openIt); }, []);
   useEffect(() => { conversationStore.turns = turns; }, [turns]);
   useEffect(() => { scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight }); }, [turns, busy, open]);
   useEffect(() => {

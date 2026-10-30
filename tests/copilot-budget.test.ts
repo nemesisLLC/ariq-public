@@ -2,6 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { emptyBudget, budgetReserve, budgetReconcile, budgetStatus } from '../lib/copilot/budget-core.ts';
 import { resolveCopilotConfig, costMicroUsd, reserveMicroUsd, STANDARD_MODEL, CONTRIBUTOR_MODEL } from '../lib/copilot/config.ts';
+import { CopilotBudgetDO } from '../cloudflare/copilot-budget-do.ts';
+import worker from '../cloudflare/worker.ts';
 
 const DAY = '2026-10-30';
 const caps = { totalMicroUsd: 1000, dailyMicroUsd: 400 };
@@ -43,6 +45,83 @@ test('config unification: flags, key names, contributor gating, conservative def
   assert.equal(resolveCopilotConfig({ COPILOT_MODEL: CONTRIBUTOR_MODEL }).model, STANDARD_MODEL);
   const demo = resolveCopilotConfig({ COPILOT_MODEL: CONTRIBUTOR_MODEL, COPILOT_ALLOW_CONTRIBUTOR: 'true' });
   assert.equal(demo.model, CONTRIBUTOR_MODEL); assert.equal(demo.contributor, true);
+});
+
+class FakeSql {
+  rows: Record<string, unknown>[] = [];
+  exec(query: string, ...params: unknown[]) {
+    if (query.startsWith('SELECT')) return { toArray: () => this.rows };
+    if (query.startsWith('INSERT')) this.rows = [{ payload: params[0] }];
+    return { toArray: () => [] };
+  }
+}
+const doPost = (d: CopilotBudgetDO, body: unknown) => d.fetch(new Request('https://budget/', { method: 'POST', body: JSON.stringify(body) }));
+const CAPS = { totalMicroUsd: 5_000_000, dailyMicroUsd: 1_000_000 };
+
+test('Durable Object: corrupt stored state fails closed and never resets to zero', async () => {
+  const sql = new FakeSql();
+  const d = new CopilotBudgetDO({ storage: { sql } } as never);
+  const okRes = await doPost(d, { op: 'reserve', id: 'x1', amountMicroUsd: 700_000, caps: CAPS });
+  assert.equal(okRes.status, 200);
+  sql.rows = [{ payload: '{not json' }];
+  const corrupt = await doPost(d, { op: 'reserve', id: 'x2', amountMicroUsd: 100, caps: CAPS });
+  assert.equal(corrupt.status, 500); // fail closed; a zero-reset would have returned 200
+  const status = await doPost(d, { op: 'status', caps: CAPS });
+  assert.equal(status.status, 500);
+  sql.rows = [{ payload: '{"totalSpentMicroUsd":"lots","daySpentMicroUsd":0,"reservations":{}}' }];
+  assert.equal((await doPost(d, { op: 'status', caps: CAPS })).status, 500); // wrong shape also fails closed
+});
+
+test('Durable Object: concurrent reservations cannot overspend the daily cap', async () => {
+  const d = new CopilotBudgetDO({ storage: { sql: new FakeSql() } } as never);
+  const results = await Promise.all(Array.from({ length: 10 }, (_, i) => doPost(d, { op: 'reserve', id: `c${i}`, amountMicroUsd: 300_000, caps: CAPS })));
+  const accepted = results.filter(r => r.status === 200).length;
+  assert.equal(accepted, 3); // 3 x $0.30 <= $1 daily cap; the rest are refused
+  const st = await (await doPost(d, { op: 'status', caps: CAPS })).json() as { daySpentMicroUsd: number };
+  assert.equal(st.daySpentMicroUsd, 900_000);
+});
+
+function fakeBudgetStub(calls: { op: string; actualMicroUsd?: number }[], reserveOk = true) {
+  return {
+    idFromName: (n: string) => n,
+    get: () => ({
+      fetch: async (req: Request) => {
+        const b = await req.json() as { op: string; actualMicroUsd?: number };
+        calls.push(b);
+        if (b.op === 'reserve') return new Response(JSON.stringify({ ok: reserveOk, reason: reserveOk ? null : 'daily-budget-exhausted' }), { status: reserveOk ? 200 : 429 });
+        return new Response(JSON.stringify({ ok: true }));
+      },
+    }),
+  };
+}
+const workerEnv = (stub: unknown) => ({ ARIQ_COPILOT_ENABLED: 'true', MODEL_API_KEY: 'test-key', COPILOT_BUDGET: stub }) as never;
+const postCopilot = () => new Request('https://ariq.example/api/copilot', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question: 'hi', language: 'en' }) });
+
+test('worker: partial provider failure keeps the full reservation (no zero-cost refund)', async () => {
+  const originalFetch = globalThis.fetch;
+  let metaCalls = 0;
+  globalThis.fetch = (async (url: unknown) => { if (String(url).includes('api.meta.ai')) { metaCalls++; return new Response('provider down', { status: 500 }); } return originalFetch(url as never); }) as typeof fetch;
+  try {
+    const calls: { op: string; actualMicroUsd?: number }[] = [];
+    const res = await worker.fetch(postCopilot(), workerEnv(fakeBudgetStub(calls)), {} as never);
+    assert.equal(res.status, 500); // provider failure surfaces as an error
+    assert.ok(metaCalls >= 1);
+    const reconcile = calls.find(c => c.op === 'reconcile');
+    assert.ok(reconcile && (reconcile.actualMicroUsd ?? 0) > 0, 'failed requests must not reconcile to zero');
+    assert.equal(reconcile!.actualMicroUsd, reserveMicroUsd(resolveCopilotConfig({})));
+  } finally { globalThis.fetch = originalFetch; }
+});
+
+test('worker: budget exhaustion stops before any provider call', async () => {
+  const originalFetch = globalThis.fetch;
+  let metaCalls = 0;
+  globalThis.fetch = (async (url: unknown) => { if (String(url).includes('api.meta.ai')) metaCalls++; return new Response('{}', { status: 200 }); }) as typeof fetch;
+  try {
+    const calls: { op: string }[] = [];
+    const res = await worker.fetch(postCopilot(), workerEnv(fakeBudgetStub(calls, false)), {} as never);
+    assert.equal(res.status, 429);
+    assert.equal(metaCalls, 0);
+  } finally { globalThis.fetch = originalFetch; }
 });
 
 test('cost accounting uses published Standard pricing; reservation covers worst case', () => {

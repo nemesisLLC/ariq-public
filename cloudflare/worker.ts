@@ -102,15 +102,25 @@ export default {
           const why = await reserved.json().catch(() => null) as { reason?: string } | null;
           return json({ error: 'The Copilot usage budget is exhausted. Deterministic ARIQ tools remain available.', kind: 'copilot-budget-exhausted', reason: why?.reason ?? 'budget' }, 429);
         }
+        const reservedMicroUsd = reserveMicroUsd(config);
         try {
           const { runCopilot } = await import('../lib/copilot/orchestrator.ts');
           const body = await readBoundedJson(request, 16384);
           const result = await runCopilot(body, { apiKey: config.apiKey, enabled: true, model: config.model, maxModelCalls: config.maxModelCalls, maxToolCalls: config.maxToolCalls }) as { usage?: { totalUsage?: { inputTokens: number; cachedTokens: number; outputTokens: number } } };
-          const actual = costMicroUsd(result.usage?.totalUsage, config.model);
+          const usage = result.usage?.totalUsage;
+          const usageKnown = !!usage && (usage.inputTokens > 0 || usage.outputTokens > 0);
+          // Reconcile to actual cost ONLY when provider usage was reported.
+          // Missing/zero usage is uncertain: paid calls may have occurred,
+          // so the conservative reservation stands in full.
+          const actual = usageKnown ? costMicroUsd(usage, config.model) : reservedMicroUsd;
           await stub.fetch(new Request('https://budget/reconcile', { method: 'POST', body: JSON.stringify({ op: 'reconcile', id: reservationId, actualMicroUsd: actual }) }));
-          return json({ ...result, budget: { model: config.model, contributor: config.contributor, reconciledMicroUsd: actual } });
+          return json({ ...result, budget: { model: config.model, contributor: config.contributor, reconciledMicroUsd: actual, usageKnown } });
         } catch (error) {
-          await stub.fetch(new Request('https://budget/reconcile', { method: 'POST', body: JSON.stringify({ op: 'reconcile', id: reservationId, actualMicroUsd: 0 }) })).catch(() => {});
+          // A failed request may already have made paid provider calls
+          // (e.g. a tool round succeeded, the summary call timed out).
+          // NEVER reconcile failures to zero: keep the full conservative
+          // reservation so errors cannot replenish the allowance.
+          await stub.fetch(new Request('https://budget/reconcile', { method: 'POST', body: JSON.stringify({ op: 'reconcile', id: reservationId, actualMicroUsd: reservedMicroUsd }) })).catch(() => {});
           throw error;
         }
       }
