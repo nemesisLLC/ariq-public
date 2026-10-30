@@ -1,0 +1,69 @@
+.farm-journey{--paper:#f2f0e8;--ink:#173f49;--river:#177e91;--vegetation:#70896c;--earth:#ad8c62;--caution:#9a572f;background:var(--paper);color:var(--ink)}
+.farm-journey :is(.journey-header,.journey-pane,.journey-lab,.field-lenses){background:var(--paper)}
+.journey-header{gap:20px}.journey-header>label{margin-left:0}.journey-header>label:first-of-type{margin-left:auto}
+.farm-journey .journey-primary{background:var(--river);border-color:var(--river)}
+.farm-journey :is(input,select,button,a,summary):focus-visible{outline:3px solid #177e91;outline-offset:3px}
+.farm-journey summary{cursor:pointer;min-height:44px;align-content:center}.farm-journey p{max-width:72ch}.farm-journey .journey-pane{padding-bottom:70px}
+.crop-picker{border:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}.crop-picker legend{margin-bottom:12px;font-size:14px}.crop-picker button{min-height:82px;display:flex;align-items:center;gap:10px;text-align:left;border:1px solid #9cafaf;background:transparent;border-radius:8px;padding:12px;color:#173f49;font-size:13px}.crop-picker svg{width:32px;height:40px;flex-shrink:0}.crop-picker button[aria-pressed=true]{border:2px solid #177e91;background:#dfebea;padding:11px}.crop-picker button:hover{background:#e5ece7}
+.map-invitation{position:absolute;top:22px;left:22px;padding:12px 18px;background:#f2f0e8f0;border-radius:5px;box-shadow:0 3px 18px #173f4920;pointer-events:none;font-size:13px}
+.sheet-toggle{display:none}.root-zone{margin:20px 0}.root-zone svg{display:block;width:100%}.root-zone text{fill:#173f49;font:12px 'Onest ARIQ',sans-serif}.root-zone figcaption{font-size:11px;color:#526b70;line-height:1.7;margin-top:10px}
+.field-day-buttons{display:flex;overflow:auto;gap:6px;margin:20px 0 12px}.field-day-buttons button{background:transparent;border:1px solid #afc2c1;border-radius:5px;padding:8px 10px;color:#173f49;font-size:11px;flex:1;min-width:48px}.field-day-buttons [aria-pressed=true]{background:#173f49;color:white}
+.stress-scenarios{display:grid;gap:16px;margin:20px 0}.stress-scenarios>div{border-left:2px solid #70896c;padding-left:14px}.stress-scenarios>div:nth-child(2){border-color:#177e91}.stress-scenarios>div:nth-child(3){border-color:#9a572f}.stress-scenarios span{font-size:12px}.stress-scenarios strong{display:block;font-weight:500;margin:6px 0;font-size:17px}.stress-scenarios small{font-size:11px}
+.field-reading select{min-height:46px;padding:10px;max-width:100%;border:1px solid #9cafaf;color:#173f49;background:white;border-radius:5px}.paired-readings{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0}.paired-readings>div{border-top:2px solid #177e91;padding-top:12px;font-size:13px}.paired-readings>div+div{border-color:#ad8c62}.paired-readings strong{display:block;font-size:25px;font-weight:500;margin:8px 0}.profile-evidence{font-size:12px;border-top:1px solid #afc2c1;padding:18px 0;margin-top:28px;line-height:1.7}.profile-evidence pre{white-space:pre-wrap;overflow-wrap:anywhere;max-height:280px;overflow:auto;font-size:10px}.profile-evidence table{width:100%;text-align:left;border-collapse:collapse}.profile-evidence :is(td,th){border-bottom:1px solid #b8c4bf;padding:8px 4px}.profile-evidence details{padding:8px 0}.profile-evidence a{color:#176878}.product-input-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}.delivery-planner{padding:22px 0}
+.journey-lab{left:0;right:auto;width:58%;max-width:920px;box-shadow:6px 0 35px #173f491a;top:140px}.journey-lab>header{padding:12px 24px;justify-content:space-between}.journey-lab>header h2{font-size:17px}.journey-lab .science-body{padding:26px}.journey-lab .groundwater-layout,.journey-lab .soil-layout,.journey-lab .futures-layout{grid-template-columns:1fr;display:flex;flex-direction:column;gap:25px}.journey-lab .science-inputs{max-width:none;width:100%}.journey-lab .a-field{margin-bottom:16px}.journey-lab .science-body :is(input,select){max-width:100%}
+.farm-journey :is(.journey-primary,.field-action,.field-day-buttons button,.crop-picker button){transition:background .2s,border-color .2s,color .2s}.field-unavailable{padding:20px;border-left:3px solid #9a572f;background:#ece5d8}.product-section-intro{font-size:14px;line-height:1.7;color:#526b70}.science-body svg{max-width:100%}
+@media(min-width:1000px){.journey-pane{width:450px;padding:32px}.journey-map{left:450px}.journey-step-3 .journey-pane{width:470px}.journey-step-3 .journey-map{left:470px}}
+@media(max-width:760px){.journey-header{gap:10px;padding:0 14px}.journey-header select{max-width:88px;padding:8px 3px;font-size:11px}.journey-back{max-width:110px;line-height:1.4}.journey-step-0 .journey-map{display:block;height:35%}.journey-step-0 .journey-pane{top:calc(116px + 35%)}.journey-pane{border-radius:18px 18px 0 0;padding-top:12px!important;box-shadow:0 -5px 25px #173f4915}.sheet-toggle{display:block;background:none;border:0;border-top:3px solid #9cafaf;margin:0 auto 14px;min-height:35px!important;padding:7px 15px;color:#416069;font-size:11px}.sheet-expanded .journey-pane{top:116px!important}.sheet-expanded .journey-map{visibility:hidden}.map-invitation{left:12px;top:12px;font-size:11px;padding:10px}.journey-lab{inset:116px 0 0;width:100%;max-width:none}.journey-lab>header{padding:10px 16px}.product-input-grid{grid-template-columns:1fr 1fr}.field-day-buttons button{min-width:44px;padding:8px 4px}.journey-step-3 .journey-map{height:28%}.journey-step-3 .journey-pane{top:calc(116px + 28%)}}
+@media(prefers-reduced-motion:reduce){.farm-journey *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media print{.journey-lab{inset:auto!important;width:100%!important;max-width:none!important;box-shadow:none!important}.journey-lab .science-body{max-width:none}}
+
+/* Motion follows a selection or a real result; no continuous decorative render loop. */
+.root-zone svg,.allocation-network{display:block;width:100%;height:auto}
+.root-zone-water{transform-box:fill-box;transform-origin:center bottom;transition:transform 280ms ease-out}
+.tool-loading{padding:32px;color:var(--ink)}
+.journey-pane,.journey-lab{animation:ariq-arrive 240ms ease-out}
+.journey-tool:not([hidden]) .science-body,.field-reading{animation:ariq-arrive 220ms ease-out}
+.farm-journey :is(button,a,input,select){-webkit-tap-highlight-color:transparent}
+.farm-journey :is(.journey-primary,.field-action,.crop-picker button){transition:transform 180ms ease,background 180ms ease,border-color 180ms ease,box-shadow 180ms ease}
+.farm-journey :is(.journey-primary,.crop-picker button):active{transform:scale(.98)}
+.crop-picker button[aria-pressed=true] svg{transform:translateY(-2px);transition:transform 220ms ease}
+.journey-steps b{transition:background 220ms,color 220ms}
+.farm-journey input[type=range]{accent-color:#177e91;min-height:44px;cursor:pointer}
+.journey-step-3 .journey-pane>h1{font-size:28px;margin:0 0 12px}
+@keyframes ariq-arrive{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media(hover:hover){.farm-journey .journey-primary:hover{box-shadow:0 5px 14px #173f4926;transform:translateY(-1px)}}
+@media(max-width:760px){.journey-step-3 .journey-field-summary{margin-bottom:12px;padding-bottom:12px}.journey-step-3 .field-identity{padding:14px 0}.journey-step-3 .field-identity h2{font-size:26px;margin:8px 0}}
+@media(prefers-reduced-motion:reduce){.farm-journey *{animation:none!important;transition:none!important}.farm-journey button:active,.farm-journey button:hover{transform:none!important}}
+
+/* Example mode banner: visible proof the saved farm is untouched. */
+.example-banner{border-left:3px solid #ad8c62;background:#ece5d8;padding:14px 16px;margin:0 0 18px;animation:ariq-arrive 240ms ease-out}
+.example-banner p{font-size:13px;line-height:1.6;margin:0 0 10px}
+
+/* Premium motion pass: every animation follows a selection, a view change
+   or a real result. No continuous decorative loops; reduced motion kills all. */
+.stress-scenarios>div{animation:ariq-arrive 300ms ease-out both}
+.stress-scenarios>div:nth-child(2){animation-delay:60ms}
+.stress-scenarios>div:nth-child(3){animation-delay:120ms}
+.field-day-buttons button{transition:background 180ms ease,color 180ms ease,transform 180ms ease}
+.field-day-buttons button[aria-pressed=true]{transform:translateY(-1px)}
+.field-lenses button{transition:background 180ms ease,color 180ms ease,box-shadow 180ms ease}
+.field-lenses button[aria-pressed=true]{box-shadow:inset 0 -2px 0 #177e91}
+.paired-readings{animation:ariq-arrive 280ms ease-out}
+.season-twins>section{animation:ariq-arrive 300ms ease-out both}
+.season-twins>section+section{animation-delay:70ms}
+.allocation-network{animation:ariq-arrive 300ms ease-out}
+.journey-area>strong{transition:color 200ms ease}
+.atlas-research-panel{animation:ariq-panel-in 260ms cubic-bezier(.2,.8,.2,1)}
+.a-place-sheet{animation:ariq-panel-in 260ms cubic-bezier(.2,.8,.2,1)}
+@keyframes ariq-panel-in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.example-banner,.stress-scenarios>div,.paired-readings,.season-twins>section,.allocation-network,.atlas-research-panel,.a-place-sheet{animation:none!important}}
+
+/* Keep scientific evidence within reach on small screens. */
+.farm-journey .field-identity{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:14px 0}
+.farm-journey .field-identity>span{grid-column:1}.farm-journey .field-identity p{grid-column:1;font-size:16px;margin:0}.farm-journey .field-identity strong{grid-column:2;grid-row:1/3;font-size:28px;align-self:center}.farm-journey .field-identity small{grid-column:1/-1;font-size:11px}
+.journey-lab-content{overscroll-behavior:contain}.farm-journey h2{text-wrap:balance}.journey-field-summary strong{overflow-wrap:anywhere}
+@media(min-width:1100px){.journey-lab .groundwater-layout{display:grid;grid-template-columns:minmax(220px,.85fr) minmax(280px,1.15fr);gap:24px}.journey-lab .groundwater-visual{position:sticky;top:0;align-self:start}.journey-lab .groundwater-visual svg{width:100%;height:auto}}
+@media(max-width:760px){.journey-step-3 .journey-map{height:23%}.journey-step-3 .journey-pane{top:calc(116px + 23%)}.journey-step-3 .journey-pane>h1{font-size:22px;margin-bottom:8px}.journey-step-3 .journey-field-summary{gap:5px;margin-bottom:6px;padding-bottom:10px}.journey-step-3 .journey-field-summary>strong{font-size:16px}.journey-step-3 .journey-field-summary>span,.journey-step-3 .journey-field-summary button{font-size:11px}.journey-step-3 .field-identity strong{font-size:23px}.field-reading{padding-top:14px}}
+
+.season-setup-disclosure{width:100%;border-bottom:1px solid #afc2c1}.journey-lab .scenario-setup{width:100%;max-width:none;border-right:0;padding-right:0}.season-twins{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.season-twins>section{border-top:2px solid #177e91;padding-top:12px}.season-twins>section+section{border-color:#ad8c62}.season-twins .field-facts{gap:12px}.season-twins .field-facts dd{font-size:18px}.season-twins .root-zone{margin:12px 0}.season-twins .root-zone figcaption{font-size:10px}.allocation-network text{font:11px 'Onest ARIQ',sans-serif;fill:#173f49}.allocation-network{margin:16px 0}
+@media(max-width:760px){.season-twins{grid-template-columns:1fr}.journey-lab .groundwater-visual{order:-1}.journey-lab textarea,.journey-field textarea{max-width:100%;width:100%}}

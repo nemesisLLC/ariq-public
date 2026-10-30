@@ -1,0 +1,991 @@
+{
+ "kind": "soilgrids-regional-statistics",
+ "retrievedAt": "2026-10-29",
+ "source": "ISRIC SoilGrids 2.0 via WCS 1.0 (maps.isric.org)",
+ "license": "CC BY 4.0 (ISRIC SoilGrids)",
+ "measurementKind": "modeled-estimate",
+ "method": "National 512x256 WCS tiles per property/depth (source resolution 250 m, aggregated); 0-30 cm depth-weighted means (5/10/15 cm); regional statistics inside ADM1 polygons; sand/clay uncertainty from Q0.05/Q0.95 at 5-15 cm.",
+ "resolutionNote": "Regional aggregates for context and priors. NOT field measurements; within-region variation (p10-p90) is reported because regional means hide it.",
+ "regions": [
+  {
+   "region": "Andijan Region",
+   "centre": {
+    "latitude": 40.73079,
+    "longitude": 72.35503
+   },
+   "soil": {
+    "sand": {
+     "mean": 28.7,
+     "p10": 26.35,
+     "p90": 30.57,
+     "pixels": 410,
+     "unit": "%"
+    },
+    "clay": {
+     "mean": 27.91,
+     "p10": 26.15,
+     "p90": 29.95,
+     "pixels": 410,
+     "unit": "%"
+    },
+    "silt": {
+     "mean": 43.18,
+     "p10": 40.97,
+     "p90": 45.26,
+     "pixels": 410,
+     "unit": "%"
+    },
+    "soc": {
+     "mean": 11.46,
+     "p10": 9.48,
+     "p90": 13.02,
+     "pixels": 410,
+     "unit": "g/kg"
+    },
+    "phh2o": {
+     "mean": 7.74,
+     "p10": 7.63,
+     "p90": 7.83,
+     "pixels": 410,
+     "unit": "pH"
+    },
+    "bdod": {
+     "mean": 1.46,
+     "p10": 1.43,
+     "p90": 1.49,
+     "pixels": 410,
+     "unit": "g/cm3"
+    },
+    "cec": {
+     "mean": 16.9,
+     "p10": 15.38,
+     "p90": 18.6,
+     "pixels": 410,
+     "unit": "cmol(c)/kg"
+    }
+   },
+   "uncertainty5to15cm": {
+    "sand": {
+     "q05Mean": 5.46,
+     "q95Mean": 64.76,
+     "unit": "%"
+    },
+    "clay": {
+     "q05Mean": 1.6,
+     "q95Mean": 79.99,
+     "unit": "%"
+    }
+   }
+  },
+  {
+   "region": "Bukhara Region",
+   "centre": {
+    "latitude": 40.21369,
+    "longitude": 63.76512
+   },
+   "soil": {
+    "sand": {
+     "mean": 23.56,
+     "p10": 15.92,
+     "p90": 29.73,
+     "pixels": 3606,
+     "unit": "%"
+    },
+    "clay": {
+     "mean": 33.48,
+     "p10": 30.98,
+     "p90": 35.87,
+     "pixels": 3606,
+     "unit": "%"
+    },
+    "silt": {
+     "mean": 42.58,
+     "p10": 37.83,
+     "p90": 49.75,
+     "pixels": 3606,
+     "unit": "%"
+    },
+    "soc": {
+     "mean": 5.8,
+     "p10": 4.28,
+     "p90": 7.26,
+     "pixels": 3606,
+     "unit": "g/kg"
+    },
+    "phh2o": {
+     "mean": 7.7,
+     "p10": 7.55,
+     "p90": 7.85,
+     "pixels": 3606,
+     "unit": "pH"
+    },
+    "bdod": {
+     "mean": 1.47,
+     "p10": 1.45,
+     "p90": 1.51,
+     "pixels": 3606,
+     "unit": "g/cm3"
+    },
+    "cec": {
+     "mean": 19.67,
+     "p10": 14.78,
+     "p90": 26.46,
+     "pixels": 3606,
+     "unit": "cmol(c)/kg"
+    }
+   },
+   "uncertainty5to15cm": {
+    "sand": {
+     "q05Mean": 5.07,
+     "q95Mean": 58.68,
+     "unit": "%"
+    },
+    "clay": {
+     "q05Mean": 2.05,
+     "q95Mean": 79.67,
+     "unit": "%"
+    }
+   }
+  },
+  {
+   "region": "Fergana Region",
+   "centre": {
+    "latitude": 40.32373,
+    "longitude": 71.28244
+   },
+   "soil": {
+    "sand": {
+     "mean": 30.15,
+     "p10": 26.37,
+     "p90": 35.02,
+     "pixels": 652,
+     "unit": "%"
+    },
+    "clay": {
+     "mean": 28.58,
+     "p10": 24.8,
+     "p90": 32.03,
+     "pixels": 652,
+     "unit": "%"
+    },
+    "silt": {
+     "mean": 41.16,
+     "p10": 38.32,
+     "p90": 43.72,
+     "pixels": 652,
+     "unit": "%"
+    },
+    "soc": {
+     "mean": 10.14,
+     "p10": 7.21,
+     "p90": 12.13,
+     "pixels": 652,
+     "unit": "g/kg"
+    },
+    "phh2o": {
+     "mean": 7.76,
+     "p10": 7.68,
+     "p90": 7.85,
+     "pixels": 652,
+     "unit": "pH"
+    },
+    "bdod": {
+     "mean": 1.46,
+     "p10": 1.43,
+     "p90": 1.49,
+     "pixels": 652,
+     "unit": "g/cm3"
+    },
+    "cec": {
+     "mean": 16.66,
+     "p10": 15.52,
+     "p90": 17.88,
+     "pixels": 652,
+     "unit": "cmol(c)/kg"
+    }
+   },
+   "uncertainty5to15cm": {
+    "sand": {
+     "q05Mean": 4.65,
+     "q95Mean": 70.08,
+     "unit": "%"
+    },
+    "clay": {
+     "q05Mean": 1.31,
+     "q95Mean": 81.62,
+     "unit": "%"
+    }
+   }
+  },
+  {
+   "region": "Jizzakh Region",
+   "centre": {
+    "latitude": 40.35601,
+    "longitude": 67.83373
+   },
+   "soil": {
+    "sand": {
+     "mean": 24.59,
+     "p10": 23.04,
+     "p90": 28.18,
+     "pixels": 1917,
+     "unit": "%"
+    },
+    "clay": {
+     "mean": 29.53,
+     "p10": 28.01,
+     "p90": 33.91,
+     "pixels": 1917,
+     "unit": "%"
+    },
+    "silt": {
+     "mean": 40.75,
+     "p10": 38.38,
+     "p90": 46.4,
+     "pixels": 1917,
+     "unit": "%"
+    },
+    "soc": {
+     "mean": 14.02,
+     "p10": 7.88,
+     "p90": 23.54,
+     "pixels": 1917,
+     "unit": "g/kg"
+    },
+    "phh2o": {
+     "mean": 7.15,
+     "p10": 7.23,
+     "p90": 7.68,
+     "pixels": 1917,
+     "unit": "pH"
+    },
+    "bdod": {
+     "mean": 1.34,
+     "p10": 1.32,
+     "p90": 1.48,
+     "pixels": 1917,
+     "unit": "g/cm3"
+    },
+    "cec": {
+     "mean": 25.65,
+     "p10": 19.75,
+     "p90": 37.32,
+     "pixels": 1917,
+     "unit": "cmol(c)/kg"
+    }
+   },
+   "uncertainty5to15cm": {
+    "sand": {
+     "q05Mean": 5.01,
+     "q95Mean": 56.84,
+     "unit": "%"
+    },
+    "clay": {
+     "q05Mean": 2.54,
+     "q95Mean": 79.47,
+     "unit": "%"
+    }
+   }
+  },
+  {
+   "region": "Namangan Region",
+   "centre": {
+    "latitude": 41.09553,
+    "longitude": 71.29883
+   },
+   "soil": {
+    "sand": {
+     "mean": 29.65,
+     "p10": 26.86,
+     "p90": 32.7,
+     "pixels": 694,
+     "unit": "%"
+    },
+    "clay": {
+     "mean": 27.13,
+     "p10": 24.35,
+     "p90": 30.85,
+     "pixels": 694,
+     "unit": "%"
+    },
+    "silt": {
+     "mean": 43.26,
+     "p10": 40.2,
+     "p90": 46.13,
+     "pixels": 694,
+     "unit": "%"
+    },
+    "soc": {
+     "mean": 15.88,
+     "p10": 8.22,
+     "p90": 34.12,
+     "pixels": 694,
+     "unit": "g/kg"
+    },
+    "phh2o": {
+     "mean": 7.5,
+     "p10": 6.69,
+     "p90": 7.82,
+     "pixels": 694,
+     "unit": "pH"
+    },
+    "bdod": {
+     "mean": 1.4,
+     "p10": 1.25,
+     "p90": 1.49,
+     "pixels": 694,
+     "unit": "g/cm3"
+    },
+    "cec": {
+     "mean": 18.54,
+     "p10": 15.6,
+     "p90": 23.33,
+     "pixels": 694,
+     "unit": "cmol(c)/kg"
+    }
+   },
+   "uncertainty5to15cm": {
+    "sand": {
+     "q05Mean": 5.7,
+     "q95Mean": 65.62,
+     "unit": "%"
+    },
+    "clay": {
+     "q05Mean": 1.53,
+     "q95Mean": 76.97,
+     "unit": "%"
+    }
+   }
+  },
+  {
+   "region": "Navoiy Region",
+   "centre": {
+    "latitude": 41.59939,
+    "longitude": 64.229
+   },
+   "soil": {
+    "sand": {
+     "mean": 24.86,
+     "p10": 19.23,
+     "p90": 30.08,
+     "pixels": 9604,
+     "unit": "%"
+    },
+    "clay": {
+     "mean": 33.91,
+     "p10": 30.15,
+     "p90": 37.33,
+     "pixels": 9604,
+     "unit": "%"
+    },
+    "silt": {
+     "mean": 40.43,
+     "p10": 37.92,
+     "p90": 44.15,
+     "pixels": 9604,
+     "unit": "%"
+    },
+    "soc": {
+     "mean": 7.13,
+     "p10": 5.3,
+     "p90": 8.87,
+     "pixels": 9604,
+     "unit": "g/kg"
+    },
+    "phh2o": {
+     "mean": 7.74,
+     "p10": 7.7,
+     "p90": 7.95,
+     "pixels": 9604,
+     "unit": "pH"
+    },
+    "bdod": {
+     "mean": 1.43,
+     "p10": 1.43,
+     "p90": 1.47,
+     "pixels": 9604,
+     "unit": "g/cm3"
+    },
+    "cec": {
+     "mean": 31.42,
+     "p10": 20.85,
+     "p90": 37.03,
+     "pixels": 9604,
+     "unit": "cmol(c)/kg"
+    }
+   },
+   "uncertainty5to15cm": {
+    "sand": {
+     "q05Mean": 4.49,
+     "q95Mean": 62.54,
+     "unit": "%"
+    },
+    "clay": {
+     "q05Mean": 1.98,
+     "q95Mean": 83.25,
+     "unit": "%"
+    }
+   }
+  },
+  {
+   "region": "Republic of Karakalpakstan",
+   "centre": {
+    "latitude": 43.29215,
+    "longitude": 59.24861
+   },
+   "soil": {
+    "sand": {
+     "mean": 23.64,
+     "p10": 18.27,
+     "p90": 30.48,
+     "pixels": 14656,
+     "unit": "%"
+    },
+    "clay": {
+     "mean": 30.88,
+     "p10": 27.77,
+     "p90": 36.87,
+     "pixels": 14656,
+     "unit": "%"
+    },
+    "silt": {
+     "mean": 38.04,
+     "p10": 36.42,
+     "p90": 44.77,
+     "pixels": 14656,
+     "unit": "%"
+    },
+    "soc": {
+     "mean": 14.38,
+     "p10": 7.55,
+     "p90": 30.67,
+     "pixels": 14656,
+     "unit": "g/kg"
+    },
+    "phh2o": {
+     "mean": 7.17,
+     "p10": 7.58,
+     "p90": 7.88,
+     "pixels": 14656,
+     "unit": "pH"
+    },
+    "bdod": {
+     "mean": 1.34,
+     "p10": 1.41,
+     "p90": 1.48,
+     "pixels": 14656,
+     "unit": "g/cm3"
+    },
+    "cec": {
+     "mean": 22.86,
+     "p10": 19.2,
+     "p90": 34.13,
+     "pixels": 14656,
+     "unit": "cmol(c)/kg"
+    }
+   },
+   "uncertainty5to15cm": {
+    "sand": {
+     "q05Mean": 2.43,
+     "q95Mean": 67.88,
+     "unit": "%"
+    },
+    "clay": {
+     "q05Mean": 0.97,
+     "q95Mean": 89.3,
+     "unit": "%"
+    }
+   }
+  },
+  {
+   "region": "Qashqadaryo Region",
+   "centre": {
+    "latitude": 38.78877,
+    "longitude": 66.03143
+   },
+   "soil": {
+    "sand": {
+     "mean": 27.58,
+     "p10": 21.7,
+     "p90": 32.87,
+     "pixels": 2551,
+     "unit": "%"
+    },
+    "clay": {
+     "mean": 31.57,
+     "p10": 27.78,
+     "p90": 34.87,
+     "pixels": 2551,
+     "unit": "%"
+    },
+    "silt": {
+     "mean": 40.81,
+     "p10": 37.65,
+     "p90": 44.72,
+     "pixels": 2551,
+     "unit": "%"
+    },
+    "soc": {
+     "mean": 10.67,
+     "p10": 4.05,
+     "p90": 23.18,
+     "pixels": 2551,
+     "unit": "g/kg"
+    },
+    "phh2o": {
+     "mean": 7.62,
+     "p10": 7.3,
+     "p90": 7.88,
+     "pixels": 2551,
+     "unit": "pH"
+    },
+    "bdod": {
+     "mean": 1.41,
+     "p10": 1.34,
+     "p90": 1.47,
+     "pixels": 2551,
+     "unit": "g/cm3"
+    },
+    "cec": {
+     "mean": 19.2,
+     "p10": 16.22,
+     "p90": 22.6,
+     "pixels": 2551,
+     "unit": "cmol(c)/kg"
+    }
+   },
+   "uncertainty5to15cm": {
+    "sand": {
+     "q05Mean": 5.27,
+     "q95Mean": 60.75,
+     "unit": "%"
+    },
+    "clay": {
+     "q05Mean": 2.21,
+     "q95Mean": 80.72,
+     "unit": "%"
+    }
+   }
+  },
+  {
+   "region": "Samarqand Region",
+   "centre": {
+    "latitude": 39.94961,
+    "longitude": 66.34589
+   },
+   "soil": {
+    "sand": {
+     "mean": 26.7,
+     "p10": 22.42,
+     "p90": 30.85,
+     "pixels": 1512,
+     "unit": "%"
+    },
+    "clay": {
+     "mean": 30.97,
+     "p10": 28.53,
+     "p90": 33.62,
+     "pixels": 1512,
+     "unit": "%"
+    },
+    "silt": {
+     "mean": 42.24,
+     "p10": 38.0,
+     "p90": 47.37,
+     "pixels": 1512,
+     "unit": "%"
+    },
+    "soc": {
+     "mean": 9.52,
+     "p10": 5.23,
+     "p90": 12.7,
+     "pixels": 1512,
+     "unit": "g/kg"
+    },
+    "phh2o": {
+     "mean": 7.6,
+     "p10": 7.48,
+     "p90": 7.83,
+     "pixels": 1512,
+     "unit": "pH"
+    },
+    "bdod": {
+     "mean": 1.41,
+     "p10": 1.37,
+     "p90": 1.45,
+     "pixels": 1512,
+     "unit": "g/cm3"
+    },
+    "cec": {
+     "mean": 21.06,
+     "p10": 16.75,
+     "p90": 25.18,
+     "pixels": 1512,
+     "unit": "cmol(c)/kg"
+    }
+   },
+   "uncertainty5to15cm": {
+    "sand": {
+     "q05Mean": 5.16,
+     "q95Mean": 56.37,
+     "unit": "%"
+    },
+    "clay": {
+     "q05Mean": 2.83,
+     "q95Mean": 78.49,
+     "unit": "%"
+    }
+   }
+  },
+  {
+   "region": "Sirdaryo Region",
+   "centre": {
+    "latitude": 40.59509,
+    "longitude": 68.63145
+   },
+   "soil": {
+    "sand": {
+     "mean": 22.81,
+     "p10": 21.84,
+     "p90": 24.16,
+     "pixels": 412,
+     "unit": "%"
+    },
+    "clay": {
+     "mean": 29.17,
+     "p10": 27.22,
+     "p90": 31.33,
+     "pixels": 412,
+     "unit": "%"
+    },
+    "silt": {
+     "mean": 48.06,
+     "p10": 45.45,
+     "p90": 50.25,
+     "pixels": 412,
+     "unit": "%"
+    },
+    "soc": {
+     "mean": 13.41,
+     "p10": 10.02,
+     "p90": 15.8,
+     "pixels": 412,
+     "unit": "g/kg"
+    },
+    "phh2o": {
+     "mean": 7.67,
+     "p10": 7.58,
+     "p90": 7.77,
+     "pixels": 412,
+     "unit": "pH"
+    },
+    "bdod": {
+     "mean": 1.47,
+     "p10": 1.45,
+     "p90": 1.49,
+     "pixels": 412,
+     "unit": "g/cm3"
+    },
+    "cec": {
+     "mean": 23.61,
+     "p10": 19.6,
+     "p90": 28.47,
+     "pixels": 412,
+     "unit": "cmol(c)/kg"
+    }
+   },
+   "uncertainty5to15cm": {
+    "sand": {
+     "q05Mean": 4.33,
+     "q95Mean": 51.07,
+     "unit": "%"
+    },
+    "clay": {
+     "q05Mean": 1.83,
+     "q95Mean": 75.98,
+     "unit": "%"
+    }
+   }
+  },
+  {
+   "region": "Surxondaryo Region",
+   "centre": {
+    "latitude": 38.10836,
+    "longitude": 67.45276
+   },
+   "soil": {
+    "sand": {
+     "mean": 28.7,
+     "p10": 22.45,
+     "p90": 34.24,
+     "pixels": 1787,
+     "unit": "%"
+    },
+    "clay": {
+     "mean": 29.35,
+     "p10": 24.01,
+     "p90": 34.87,
+     "pixels": 1787,
+     "unit": "%"
+    },
+    "silt": {
+     "mean": 41.92,
+     "p10": 39.12,
+     "p90": 44.87,
+     "pixels": 1787,
+     "unit": "%"
+    },
+    "soc": {
+     "mean": 14.55,
+     "p10": 4.75,
+     "p90": 32.56,
+     "pixels": 1787,
+     "unit": "g/kg"
+    },
+    "phh2o": {
+     "mean": 7.58,
+     "p10": 6.95,
+     "p90": 7.93,
+     "pixels": 1787,
+     "unit": "pH"
+    },
+    "bdod": {
+     "mean": 1.39,
+     "p10": 1.25,
+     "p90": 1.48,
+     "pixels": 1787,
+     "unit": "g/cm3"
+    },
+    "cec": {
+     "mean": 18.38,
+     "p10": 15.83,
+     "p90": 22.19,
+     "pixels": 1787,
+     "unit": "cmol(c)/kg"
+    }
+   },
+   "uncertainty5to15cm": {
+    "sand": {
+     "q05Mean": 5.11,
+     "q95Mean": 62.65,
+     "unit": "%"
+    },
+    "clay": {
+     "q05Mean": 1.89,
+     "q95Mean": 79.9,
+     "unit": "%"
+    }
+   }
+  },
+  {
+   "region": "Tashkent",
+   "centre": {
+    "latitude": 41.29011,
+    "longitude": 69.32385
+   },
+   "soil": {
+    "sand": {
+     "mean": 22.08,
+     "p10": 21.43,
+     "p90": 23.29,
+     "pixels": 70,
+     "unit": "%"
+    },
+    "clay": {
+     "mean": 30.31,
+     "p10": 28.68,
+     "p90": 32.49,
+     "pixels": 70,
+     "unit": "%"
+    },
+    "silt": {
+     "mean": 46.21,
+     "p10": 44.72,
+     "p90": 48.53,
+     "pixels": 70,
+     "unit": "%"
+    },
+    "soc": {
+     "mean": 13.75,
+     "p10": 11.56,
+     "p90": 15.5,
+     "pixels": 70,
+     "unit": "g/kg"
+    },
+    "phh2o": {
+     "mean": 7.24,
+     "p10": 7.2,
+     "p90": 7.45,
+     "pixels": 70,
+     "unit": "pH"
+    },
+    "bdod": {
+     "mean": 1.39,
+     "p10": 1.43,
+     "p90": 1.46,
+     "pixels": 70,
+     "unit": "g/cm3"
+    },
+    "cec": {
+     "mean": 15.67,
+     "p10": 13.45,
+     "p90": 18.15,
+     "pixels": 70,
+     "unit": "cmol(c)/kg"
+    }
+   },
+   "uncertainty5to15cm": {
+    "sand": {
+     "q05Mean": 6.26,
+     "q95Mean": 43.18,
+     "unit": "%"
+    },
+    "clay": {
+     "q05Mean": 4.66,
+     "q95Mean": 73.17,
+     "unit": "%"
+    }
+   }
+  },
+  {
+   "region": "Tashkent Region",
+   "centre": {
+    "latitude": 41.24169,
+    "longitude": 69.95475
+   },
+   "soil": {
+    "sand": {
+     "mean": 27.97,
+     "p10": 21.78,
+     "p90": 36.12,
+     "pixels": 1479,
+     "unit": "%"
+    },
+    "clay": {
+     "mean": 28.81,
+     "p10": 22.2,
+     "p90": 34.37,
+     "pixels": 1479,
+     "unit": "%"
+    },
+    "silt": {
+     "mean": 43.19,
+     "p10": 38.55,
+     "p90": 47.52,
+     "pixels": 1479,
+     "unit": "%"
+    },
+    "soc": {
+     "mean": 26.4,
+     "p10": 13.47,
+     "p90": 46.12,
+     "pixels": 1479,
+     "unit": "g/kg"
+    },
+    "phh2o": {
+     "mean": 7.07,
+     "p10": 6.48,
+     "p90": 7.58,
+     "pixels": 1479,
+     "unit": "pH"
+    },
+    "bdod": {
+     "mean": 1.35,
+     "p10": 1.17,
+     "p90": 1.48,
+     "pixels": 1479,
+     "unit": "g/cm3"
+    },
+    "cec": {
+     "mean": 21.99,
+     "p10": 17.96,
+     "p90": 25.0,
+     "pixels": 1479,
+     "unit": "cmol(c)/kg"
+    }
+   },
+   "uncertainty5to15cm": {
+    "sand": {
+     "q05Mean": 5.8,
+     "q95Mean": 59.02,
+     "unit": "%"
+    },
+    "clay": {
+     "q05Mean": 2.08,
+     "q95Mean": 77.6,
+     "unit": "%"
+    }
+   }
+  },
+  {
+   "region": "Xorazm Region",
+   "centre": {
+    "latitude": 41.27332,
+    "longitude": 61.24854
+   },
+   "soil": {
+    "sand": {
+     "mean": 18.91,
+     "p10": 14.58,
+     "p90": 21.43,
+     "pixels": 645,
+     "unit": "%"
+    },
+    "clay": {
+     "mean": 33.34,
+     "p10": 31.44,
+     "p90": 35.07,
+     "pixels": 645,
+     "unit": "%"
+    },
+    "silt": {
+     "mean": 47.79,
+     "p10": 44.43,
+     "p90": 53.54,
+     "pixels": 645,
+     "unit": "%"
+    },
+    "soc": {
+     "mean": 9.91,
+     "p10": 7.22,
+     "p90": 11.1,
+     "pixels": 645,
+     "unit": "g/kg"
+    },
+    "phh2o": {
+     "mean": 7.6,
+     "p10": 7.55,
+     "p90": 7.7,
+     "pixels": 645,
+     "unit": "pH"
+    },
+    "bdod": {
+     "mean": 1.5,
+     "p10": 1.47,
+     "p90": 1.52,
+     "pixels": 645,
+     "unit": "g/cm3"
+    },
+    "cec": {
+     "mean": 20.22,
+     "p10": 16.02,
+     "p90": 29.59,
+     "pixels": 645,
+     "unit": "cmol(c)/kg"
+    }
+   },
+   "uncertainty5to15cm": {
+    "sand": {
+     "q05Mean": 3.33,
+     "q95Mean": 57.43,
+     "unit": "%"
+    },
+    "clay": {
+     "q05Mean": 1.2,
+     "q95Mean": 83.12,
+     "unit": "%"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+  "name": "ariq",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "verify": "npm run typecheck && npm test && npm run build",
+    "dev:vinext": "vite dev --port 3001",
+    "build:vinext": "vite build",
+    "start:vinext": "wrangler dev --config dist/server/wrangler.json",
+    "deploy:vinext": "npm run cf:deploy",
+    "cf:build": "node scripts/cloudflare-build.cjs",
+    "cf:dev": "wrangler dev --config dist/server/wrangler.json --port 8787 --test-scheduled",
+    "cf:check": "wrangler deploy --config dist/server/wrangler.json --dry-run",
+    "cf:deploy": "wrangler deploy --config dist/server/wrangler.json",
+    "cf:types": "wrangler types",
+    "verify:cloudflare": "npm run typecheck && npm test && npm run cf:build && npm run cf:check"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^9.8.2",
+    "@vinext/cloudflare": "^1.3.0",
+    "gsap": "^3.13.0",
+    "maplibre-gl": "6.16.0",
+    "next": "16.4.3",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-server-dom-webpack": "^19.3.1",
+    "three": "^0.186.1",
+    "three-mesh-bvh": "0.9.17",
+    "vinext": "1.4.0"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.66.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/three": "^0.186.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "@vitejs/plugin-rsc": "^0.5.38",
+    "playwright": "1.64.1",
+    "typescript": "^5.9.0",
+    "vite": "^8.3.5",
+    "wrangler": "^4.154.0"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "overrides": {
+    "fflate": "^0.8.2"
+  }
+}

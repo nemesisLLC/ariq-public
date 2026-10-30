@@ -1,0 +1,27 @@
+{
+  // ARIQ bounded API Worker. The Next.js application remains the primary
+  // app (see docs/CLOUDFLARE_ARCHITECTURE.md); this Worker is the
+  // Cloudflare-native API + scheduled-refresh surface, tested locally with
+  // `npm run cf:dev`. Deployment requires the owner's Cloudflare account:
+  // `npx wrangler login` (or CLOUDFLARE_API_TOKEN in CI) then `npm run cf:deploy`.
+  // No secrets are stored here. META_API_KEY must only ever be added via
+  // `wrangler secret put META_API_KEY`, and the Copilot stays disabled
+  // until an approved spending cap with distributed enforcement exists.
+  "name": "ariq-api",
+  "main": "worker.ts",
+  "compatibility_date": "2026-10-27",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "../public",
+    "binding": "ASSETS"
+  },
+  "vars": {
+    "ARIQ_COPILOT_ENABLED": "false"
+  },
+  "triggers": {
+    "crons": ["15 */6 * * *"]
+  },
+  "observability": {
+    "enabled": true
+  }
+}

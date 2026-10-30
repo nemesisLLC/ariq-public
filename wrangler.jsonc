@@ -1,0 +1,38 @@
+﻿{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ariq-private",
+  "// account_id": "set via wrangler login or CLOUDFLARE_ACCOUNT_ID",
+  "main": "cloudflare/app.ts",
+  "compatibility_date": "2026-10-28",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "workers_dev": true,
+  "ratelimits": [{"name":"API_RATE_LIMITER","namespace_id":"28361029","simple":{"limit":60,"period":60}}],
+  "preview_urls": false,
+  "assets": {
+    "binding": "ASSETS",
+    "not_found_handling": "none"
+  },
+  "vars": {
+    "ARIQ_COPILOT_ENABLED": "false",
+    "ARIQ_AI_ENABLED": "false"
+  },
+  "triggers": {
+    "crons": [
+      "15 */6 * * *"
+    ]
+  },
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "head_sampling_rate": 1
+    },
+    "traces": {
+      "enabled": true,
+      "head_sampling_rate": 0.01
+    }
+  }
+}
+

@@ -1,0 +1,20 @@
+name: Verify full Cloudflare application
+on:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run verify:cloudflare
+# Automatic deployment is owned by Cloudflare Workers Builds, restricted to
+# cloudflare-private-preview. Its build command runs typecheck and tests first.
+# No GitHub deployment token or second deployment system is needed.

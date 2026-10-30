@@ -1,0 +1,62 @@
+{
+  "policy": "Conflicting or duplicate evidence is reconciled by linking records and recording the disagreement. Nothing is silently discarded and no value is overwritten by another source.",
+  "builtAt": "2026-10-27",
+  "entries": [
+    {
+      "id": "f2-reservoirs-osm-matches",
+      "type": "same-feature-cross-source",
+      "status": "linked-not-merged",
+      "records": ["lib/water-sources-data.json reservoirs", "lib/data-foundation/osm-features.json water bodies"],
+      "detail": "23 of 24 CAWater reservoirs link to the same OpenStreetMap element stored in both datasets (osm id in each record). Both records are kept: CAWater carries design capacities, OSM carries geometry. Aktepa Reservoir has no OSM link because two nearby Oqtepa water bodies make the match ambiguous."
+    },
+    {
+      "id": "cawater-sum-vs-aquastat-national",
+      "type": "aggregate-scope-difference",
+      "status": "explained-not-a-conflict",
+      "records": ["cawater-reservoirs-uz (24 reservoirs)", "fao-aquastat-2012 national aggregate"],
+      "detail": "The 24 CAWater reservoirs sum to 19.598 km3 design capacity. AQUASTAT reports 22.2 km3 national dam capacity across at least 50 reservoirs. The difference is coverage (CAWater is a subset), not an error; both figures remain stored with their scopes."
+    },
+    {
+      "id": "tuyamuyun-internal-inconsistency",
+      "type": "within-source-inconsistency",
+      "status": "preserved-as-published",
+      "records": ["tuyamuyun-hydroscheme"],
+      "detail": "CAWater lists total 7,800, active 5,270 and dead 2,550 million m3 (active + dead = 7,820). Values are stored exactly as published and flagged in quality.notes. The same policy flagged Zaamin (30 + 20 != 51) during ingestion tests."
+    },
+    {
+      "id": "kattakurgan-normal-level",
+      "type": "rejected-source-value",
+      "status": "stored-null-with-reason",
+      "records": ["kattakurgan-reservoir"],
+      "detail": "CAWater normal maximum operating level of 31.5 m is inconsistent with its own dam height (31.2 m), maximum depth (26.3 m) and Samarkand elevation. Stored as null; the rejected value and reason are kept in quality.notes rather than silently corrected to an invented figure."
+    },
+    {
+      "id": "zarafshan-name-variants",
+      "type": "alias",
+      "status": "aliases-recorded",
+      "records": ["zarafshan-river", "kattakurgan-reservoir", "kuyumazar-reservoir", "shurkul-reservoir"],
+      "detail": "CAWater spells the river 'Zeravshan'; OpenStreetMap and English usage spell 'Zarafshan'. Both spellings are searchable (nameSource keeps the source spelling). Records are not renamed in provenance."
+    },
+    {
+      "id": "osm-shared-waterway-names",
+      "type": "duplicate-names-not-duplicates",
+      "status": "kept-separate",
+      "records": ["openstreetmap-uzbekistan waterways"],
+      "detail": "Many distinct canal/drain segments share a name. Name equality alone never merges OSM features; identity is the OSM element id. Upstream/downstream connectivity between same-name segments is recorded as not-verified."
+    },
+    {
+      "id": "region-assignment-ambiguity",
+      "type": "spatial-assignment-limit",
+      "status": "null-when-ambiguous",
+      "records": ["openstreetmap-uzbekistan features"],
+      "detail": "Region labels come from point-in-polygon against simplified OSM region boundaries (centre for points, midpoint for waterways), with nested hits resolved to the smallest polygon (Tashkent city inside Tashkent Region). Features outside every polygon keep region null. 5,842 of 5,945 OSM features received a polygon region in this build; line features are assigned by midpoint only, so a region label is not a claim that the whole waterway lies in that region."
+    },
+    {
+      "id": "design-vs-measured-storage",
+      "type": "semantic-separation",
+      "status": "enforced-by-schema-and-tests",
+      "records": ["all reservoirs", "icwc-cawater-yearbook storage statistic"],
+      "detail": "Reservoir capacities are design values (storage.kind = design-capacity, measuredStorageMillionM3 = null). The yearbook Syr Darya basin storage figure (21.35 km3 at 1 Jan 2025) is a reported basin aggregate including Toktogul and Shardara outside Uzbekistan; it is never written into any individual reservoir record."
+    }
+  ]
+}

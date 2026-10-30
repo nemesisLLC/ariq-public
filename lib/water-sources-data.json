@@ -1,0 +1,2220 @@
+{
+ "dataset": "ariq-uzbekistan-water-sources",
+ "version": 1,
+ "generatedAt": "2026-10-26",
+ "kind": "compiled-from-cited-sources",
+ "description": "Verified Uzbekistan water sources compiled from cited public sources. Design capacities are not measured storage; modeled discharge is not observed flow. Unknown values are null.",
+ "sources": [
+  {
+   "sourceId": "cawater-reservoirs-uz",
+   "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+   "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+   "retrievedAt": "2026-10-26",
+   "publicationDate": null
+  },
+  {
+   "sourceId": "osm",
+   "publisher": "OpenStreetMap contributors (ODbL)",
+   "url": "https://www.openstreetmap.org",
+   "retrievedAt": "2026-10-26",
+   "publicationDate": null
+  },
+  {
+   "sourceId": "hydrosheds-hydrorivers",
+   "publisher": "HydroSHEDS / HydroRIVERS",
+   "url": "https://www.hydrosheds.org/products/hydrorivers",
+   "retrievedAt": "2026-10-26",
+   "publicationDate": null
+  },
+  {
+   "sourceId": "siat-3506",
+   "publisher": "Statistics Agency of Uzbekistan (SIAT), indicator 3.01.02.0002, preparer: Ministry of Water Resources",
+   "url": "https://siat.stat.uz/data/3506/?lang=en",
+   "retrievedAt": "2026-10-26",
+   "publicationDate": "2024-04-02",
+   "updatedAt": "2026-04-28",
+   "license": "CC BY 4.0"
+  },
+  {
+   "sourceId": "fao-aquastat-2012",
+   "publisher": "FAO AQUASTAT",
+   "url": "https://www.fao.org/land-water/resources/tools/databases/aquastat/en",
+   "retrievedAt": "2026-10-26",
+   "publicationDate": "2012"
+  }
+ ],
+ "records": [
+  {
+   "id": "aktepa-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Aktepa reservoir",
+   "nameSource": "Aktepa reservoir",
+   "region": "Surkhandarya",
+   "basin": "Amu Darya",
+   "waterSourceNames": [
+    "Amu-Zang river"
+   ],
+   "reservoirType": "Off-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1978,
+   "location": null,
+   "osm": null,
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 120,
+    "activeMillionM3": 100,
+    "deadMillionM3": 20,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 347,
+    "surfaceKm2": 11.5,
+    "lengthKm": 3
+   },
+   "dam": {
+    "type": "Earth dam",
+    "heightM": 14,
+    "lengthM": 42
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "unverified-null",
+    "capacityStatus": "published-design-not-measured",
+    "notes": [
+     "No coordinates stored: the OpenStreetMap name match is ambiguous (two nearby Oqtepa water bodies), so coordinates are null rather than guessed."
+    ]
+   }
+  },
+  {
+   "id": "akdarya-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Akdarya reservoir",
+   "nameSource": "Akdarya reservoir",
+   "region": "Samarkand",
+   "basin": "Zarafshan",
+   "waterSourceNames": [
+    "Akdarya river"
+   ],
+   "reservoirType": "In-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1989,
+   "location": {
+    "latitude": 39.9998923,
+    "longitude": 66.3985124
+   },
+   "osm": {
+    "type": "relation",
+    "id": 15935892,
+    "url": "https://www.openstreetmap.org/relation/15935892"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 112.5,
+    "activeMillionM3": 110,
+    "deadMillionM3": 2.5,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 494.5,
+    "surfaceKm2": 12.7,
+    "lengthKm": 8.5
+   },
+   "dam": {
+    "type": "Earth dam",
+    "heightM": 20,
+    "lengthM": 930
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-relation-15935892",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/relation/15935892",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element relation/15935892 (\"Akdarya reservoir\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "andijan-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Andijan reservoir",
+   "nameSource": "Andijan reservoir and HPS",
+   "region": "Andijan (transboundary: Jalal-Abad, Osh, Kyrgyzstan)",
+   "basin": "Syr Darya",
+   "waterSourceNames": [
+    "Karadarya river"
+   ],
+   "reservoirType": "In-stream",
+   "purposes": [
+    "irrigation",
+    "hydropower"
+   ],
+   "yearCommissioned": 1970,
+   "location": {
+    "latitude": 40.7747391,
+    "longitude": 73.1156694
+   },
+   "osm": {
+    "type": "relation",
+    "id": 14663093,
+    "url": "https://www.openstreetmap.org/relation/14663093"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 1900,
+    "activeMillionM3": 1750,
+    "deadMillionM3": 150,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 906,
+    "surfaceKm2": 56,
+    "lengthKm": 20
+   },
+   "dam": {
+    "type": "Ð¡oncrete, buttress",
+    "heightM": 121,
+    "lengthM": 850
+   },
+   "hydropowerDesignMW": 190,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-relation-14663093",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/relation/14663093",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element relation/14663093 (\"Andijan Reservoir\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "akhangaran-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Akhangaran reservoir",
+   "nameSource": "Akhangaran reservoir",
+   "region": "Tashkent",
+   "basin": "Syr Darya",
+   "waterSourceNames": [
+    "Akhangaran river"
+   ],
+   "reservoirType": "In-stream",
+   "purposes": [
+    "irrigation",
+    "water supply"
+   ],
+   "yearCommissioned": 1989,
+   "location": {
+    "latitude": 41.0611824,
+    "longitude": 70.2535685
+   },
+   "osm": {
+    "type": "way",
+    "id": 25214158,
+    "url": "https://www.openstreetmap.org/way/25214158"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 198,
+    "activeMillionM3": 185,
+    "deadMillionM3": 13,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 1070.5,
+    "surfaceKm2": 2.9,
+    "lengthKm": 6
+   },
+   "dam": {
+    "type": "Earth",
+    "heightM": 100,
+    "lengthM": 1933
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-way-25214158",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/way/25214158",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element way/25214158 (\"Ahangaran Reservoir\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "charvak-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Charvak reservoir",
+   "nameSource": "Charvak reservoir and HEPS",
+   "region": "Tashkent",
+   "basin": "Syr Darya",
+   "waterSourceNames": [
+    "Pskem",
+    "Koksu",
+    "Chatkal rivers"
+   ],
+   "reservoirType": "In-stream",
+   "purposes": [
+    "irrigation",
+    "hydropower"
+   ],
+   "yearCommissioned": 1978,
+   "location": {
+    "latitude": 41.6347057,
+    "longitude": 70.0485463
+   },
+   "osm": {
+    "type": "relation",
+    "id": 2979229,
+    "url": "https://www.openstreetmap.org/relation/2979229"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 2006,
+    "activeMillionM3": 1580,
+    "deadMillionM3": 426,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 890,
+    "surfaceKm2": 40,
+    "lengthKm": 22
+   },
+   "dam": {
+    "type": "Earth-to-rockfill dam",
+    "heightM": 168,
+    "lengthM": 764
+   },
+   "hydropowerDesignMW": 600,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-relation-2979229",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/relation/2979229",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element relation/2979229 (\"Lake Charvak Reservoir\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "chartak-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Chartak reservoir",
+   "nameSource": "Chartak reservoir",
+   "region": "Namangan",
+   "basin": "Syr Darya",
+   "waterSourceNames": [
+    "Chartaksay river"
+   ],
+   "reservoirType": "In-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1989,
+   "location": {
+    "latitude": 41.1880259,
+    "longitude": 71.8107462
+   },
+   "osm": {
+    "type": "way",
+    "id": 27303053,
+    "url": "https://www.openstreetmap.org/way/27303053"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 45,
+    "activeMillionM3": 36.1,
+    "deadMillionM3": 8.9,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 701.6,
+    "surfaceKm2": 2.96,
+    "lengthKm": 4
+   },
+   "dam": {
+    "type": "Earth dam",
+    "heightM": 45,
+    "lengthM": 1594
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-way-27303053",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/way/27303053",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element way/27303053 (\"Chartak reservoir\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "chimkurgan-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Chimkurgan reservoir",
+   "nameSource": "Chimkurgan reservoir",
+   "region": "Kashkadarya",
+   "basin": "Amu Darya",
+   "waterSourceNames": [
+    "Kashkadarya river"
+   ],
+   "reservoirType": "In-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1963,
+   "location": {
+    "latitude": 38.94654,
+    "longitude": 66.3840787
+   },
+   "osm": {
+    "type": "way",
+    "id": 137820726,
+    "url": "https://www.openstreetmap.org/way/137820726"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 500,
+    "activeMillionM3": 450,
+    "deadMillionM3": 50,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 488.2,
+    "surfaceKm2": 49.2,
+    "lengthKm": 175.5
+   },
+   "dam": {
+    "type": "Earth dam",
+    "heightM": 33,
+    "lengthM": 7700
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-way-137820726",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/way/137820726",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element way/137820726 (\"Chimkurgan reserior\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "djizak-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Djizak reservoir",
+   "nameSource": "Djizak reservoir",
+   "region": "Jizzakh",
+   "basin": "Syr Darya",
+   "waterSourceNames": [
+    "Sanzar river"
+   ],
+   "reservoirType": "Off-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1973,
+   "location": {
+    "latitude": 40.059585,
+    "longitude": 67.9312214
+   },
+   "osm": {
+    "type": "relation",
+    "id": 12797736,
+    "url": "https://www.openstreetmap.org/relation/12797736"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 100,
+    "activeMillionM3": 96,
+    "deadMillionM3": 4,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 372.5,
+    "surfaceKm2": 13.75,
+    "lengthKm": 3.3
+   },
+   "dam": {
+    "type": "Earth dam",
+    "heightM": 20,
+    "lengthM": 5500
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-relation-12797736",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/relation/12797736",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element relation/12797736 (\"Jizzakh reservoir\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "gissarak-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Gissarak reservoir",
+   "nameSource": "Gissarak reservoir and HEPS",
+   "region": "Kashkadarya",
+   "basin": "Amu Darya",
+   "waterSourceNames": [
+    "Aksu river"
+   ],
+   "reservoirType": "Off-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1990,
+   "location": {
+    "latitude": 39.0164516,
+    "longitude": 67.1879579
+   },
+   "osm": {
+    "type": "way",
+    "id": 39394153,
+    "url": "https://www.openstreetmap.org/way/39394153"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 170,
+    "activeMillionM3": 161.6,
+    "deadMillionM3": 8.4,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 1118,
+    "surfaceKm2": 4.1,
+    "lengthKm": 6.8
+   },
+   "dam": {
+    "type": "Earth-to-rockfill dam",
+    "heightM": 138.5,
+    "lengthM": 660
+   },
+   "hydropowerDesignMW": 45,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-way-39394153",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/way/39394153",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element way/39394153 (\"Hissarak reservoir\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "kamashi-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Kamashi reservoir",
+   "nameSource": "Kamashi reservoir",
+   "region": "Kashkadarya",
+   "basin": "Amu Darya",
+   "waterSourceNames": [
+    "Karabagdarya"
+   ],
+   "reservoirType": "Off-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1987,
+   "location": {
+    "latitude": 38.866814,
+    "longitude": 66.429926
+   },
+   "osm": {
+    "type": "way",
+    "id": 108411138,
+    "url": "https://www.openstreetmap.org/way/108411138"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 25,
+    "activeMillionM3": 23.8,
+    "deadMillionM3": 1.2,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 495.3,
+    "surfaceKm2": 3.82,
+    "lengthKm": 3.1
+   },
+   "dam": {
+    "type": "Ground-fill dam",
+    "heightM": 14.9,
+    "lengthM": 3100
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-way-108411138",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/way/108411138",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element way/108411138 (\"Kamashi reservoir\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "kattakurgan-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Kattakurgan reservoir",
+   "nameSource": "Kattakurgan reservoir",
+   "region": "Samarkand",
+   "basin": "Zarafshan",
+   "waterSourceNames": [
+    "Zeravshan river"
+   ],
+   "reservoirType": "Off-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1968,
+   "location": {
+    "latitude": 39.7905054,
+    "longitude": 66.2386812
+   },
+   "osm": {
+    "type": "relation",
+    "id": 12571708,
+    "url": "https://www.openstreetmap.org/relation/12571708"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 900,
+    "activeMillionM3": 840,
+    "deadMillionM3": 60,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": null,
+    "surfaceKm2": 84.5,
+    "lengthKm": 17
+   },
+   "dam": {
+    "type": "Earth fill dam",
+    "heightM": 31.2,
+    "lengthM": 4040
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-relation-12571708",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/relation/12571708",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element relation/12571708 (\"Kattakurgan reservoir\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": [
+     "CAWater lists normal maximum operating level as 31.5 m, inconsistent with its own dam height (31.2 m), maximum depth (26.3 m) and Samarkand elevation; stored as null (unverified source value 31.5 m)."
+    ]
+   }
+  },
+  {
+   "id": "karaultepa-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Karaultepa reservoir",
+   "nameSource": "Karaultepa reservoir",
+   "region": "Jizzakh",
+   "basin": "Syr Darya",
+   "waterSourceNames": [
+    "Eskituyatartar channel"
+   ],
+   "reservoirType": "Off-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1983,
+   "location": {
+    "latitude": 39.8435718,
+    "longitude": 67.5347853
+   },
+   "osm": {
+    "type": "way",
+    "id": 22883052,
+    "url": "https://www.openstreetmap.org/way/22883052"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 53,
+    "activeMillionM3": 50,
+    "deadMillionM3": 3,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 818,
+    "surfaceKm2": 8.5,
+    "lengthKm": 2
+   },
+   "dam": {
+    "type": "Earth dam",
+    "heightM": 51,
+    "lengthM": 265
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-way-22883052",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/way/22883052",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element way/22883052 (\"Karaultepa Reservoir\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "karkidon-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Karkidon reservoir",
+   "nameSource": "Karkidon reservoir",
+   "region": "Fergana",
+   "basin": "Syr Darya",
+   "waterSourceNames": [
+    "Isfaramsay river"
+   ],
+   "reservoirType": "In-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1967,
+   "location": {
+    "latitude": 40.4346771,
+    "longitude": 72.0871468
+   },
+   "osm": {
+    "type": "way",
+    "id": 27143251,
+    "url": "https://www.openstreetmap.org/way/27143251"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 218.4,
+    "activeMillionM3": 211.4,
+    "deadMillionM3": 7,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 624.15,
+    "surfaceKm2": 9.5,
+    "lengthKm": 5
+   },
+   "dam": {
+    "type": "Earth dams (2)",
+    "heightM": 70.3,
+    "lengthM": 420.2
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-way-27143251",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/way/27143251",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element way/27143251 (\"Karkidan Reserior\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "kuyumazar-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Kuyumazar reservoir",
+   "nameSource": "Kuyumazar reservoir",
+   "region": "Navoi",
+   "basin": "Zarafshan",
+   "waterSourceNames": [
+    "Zeravshan river"
+   ],
+   "reservoirType": "Off-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1960,
+   "location": {
+    "latitude": 39.8701976,
+    "longitude": 64.7010358
+   },
+   "osm": {
+    "type": "way",
+    "id": 22820765,
+    "url": "https://www.openstreetmap.org/way/22820765"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 310,
+    "activeMillionM3": 263,
+    "deadMillionM3": 47,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 238,
+    "surfaceKm2": 17.2,
+    "lengthKm": 5.25
+   },
+   "dam": {
+    "type": "Earth dam",
+    "heightM": 23.5,
+    "lengthM": 100
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-way-22820765",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/way/22820765",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element way/22820765 (\"Kuyimazar Reservoir\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "pachkamar-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Pachkamar reservoir",
+   "nameSource": "Pachkamar reservoir",
+   "region": "Kashkadarya",
+   "basin": "Amu Darya",
+   "waterSourceNames": [
+    "Guzardarya river"
+   ],
+   "reservoirType": "In-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1968,
+   "location": {
+    "latitude": 38.5201968,
+    "longitude": 66.4292085
+   },
+   "osm": {
+    "type": "relation",
+    "id": 17349505,
+    "url": "https://www.openstreetmap.org/relation/17349505"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 260,
+    "activeMillionM3": 250,
+    "deadMillionM3": 10,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 676,
+    "surfaceKm2": 12.4,
+    "lengthKm": 5.5
+   },
+   "dam": {
+    "type": "Earth dam",
+    "heightM": 71,
+    "lengthM": 573
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-relation-17349505",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/relation/17349505",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element relation/17349505 (\"Pachkamar reservoir\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "shurkul-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Shurkul reservoir",
+   "nameSource": "Shurkul reservoir",
+   "region": "Bukhara",
+   "basin": "Zarafshan",
+   "waterSourceNames": [
+    "Zeravshan river"
+   ],
+   "reservoirType": "Off-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1984,
+   "location": {
+    "latitude": 40.333792,
+    "longitude": 64.8640822
+   },
+   "osm": {
+    "type": "way",
+    "id": 22896311,
+    "url": "https://www.openstreetmap.org/way/22896311"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 394,
+    "activeMillionM3": 377,
+    "deadMillionM3": 17,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 275,
+    "surfaceKm2": 42.3,
+    "lengthKm": 8
+   },
+   "dam": {
+    "type": "Earth dam",
+    "heightM": 14.5,
+    "lengthM": 560
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-way-22896311",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/way/22896311",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element way/22896311 (\"Shurkul reservoir\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "south-surkhan-reservoir",
+   "kind": "reservoir",
+   "nameEn": "South Surkhan reservoir",
+   "nameSource": "South Surkhan reservoir",
+   "region": "Surkhandarya",
+   "basin": "Amu Darya",
+   "waterSourceNames": [
+    "Surxandarya river"
+   ],
+   "reservoirType": "In-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1967,
+   "location": {
+    "latitude": 37.8692245,
+    "longitude": 67.6530302
+   },
+   "osm": {
+    "type": "way",
+    "id": 22943698,
+    "url": "https://www.openstreetmap.org/way/22943698"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 800,
+    "activeMillionM3": 700,
+    "deadMillionM3": 100,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 415,
+    "surfaceKm2": 65,
+    "lengthKm": 20
+   },
+   "dam": {
+    "type": "Earth dam",
+    "heightM": 30,
+    "lengthM": 4930
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-way-22943698",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/way/22943698",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element way/22943698 (\"South Surkhan Reservoir\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "talimardzhan-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Talimardzhan reservoir",
+   "nameSource": "Talimardzhan reservoir",
+   "region": "Kashkadarya",
+   "basin": "Amu Darya",
+   "waterSourceNames": [
+    "Amudarya river"
+   ],
+   "reservoirType": "Off-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1985,
+   "location": {
+    "latitude": 38.3681621,
+    "longitude": 65.562594
+   },
+   "osm": {
+    "type": "way",
+    "id": 22856440,
+    "url": "https://www.openstreetmap.org/way/22856440"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 1525,
+    "activeMillionM3": 1400,
+    "deadMillionM3": 125,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 400.5,
+    "surfaceKm2": 77.35,
+    "lengthKm": 14
+   },
+   "dam": {
+    "type": "Earth dam",
+    "heightM": 35,
+    "lengthM": 9745
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-way-22856440",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/way/22856440",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element way/22856440 (\"Tallimarjan reseroir\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "tudakul-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Tudakul reservoir",
+   "nameSource": "Tudakul reservoir",
+   "region": "Navoi",
+   "basin": "Amu Darya",
+   "waterSourceNames": [
+    "Amu-Bukhara chanel"
+   ],
+   "reservoirType": "Off-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1979,
+   "location": {
+    "latitude": 39.8527792,
+    "longitude": 64.8412903
+   },
+   "osm": {
+    "type": "way",
+    "id": 22820583,
+    "url": "https://www.openstreetmap.org/way/22820583"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 1200,
+    "activeMillionM3": 600,
+    "deadMillionM3": 600,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 224,
+    "surfaceKm2": 162,
+    "lengthKm": 15
+   },
+   "dam": {
+    "type": "Earth dam",
+    "heightM": 12,
+    "lengthM": 4000
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-way-22820583",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/way/22820583",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element way/22820583 (\"Tudakul reservoir\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "tupalang-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Tupalang reservoir",
+   "nameSource": "Tupalang reservoir",
+   "region": "Surkhandarya",
+   "basin": "Amu Darya",
+   "waterSourceNames": [
+    "Tupalang river"
+   ],
+   "reservoirType": "In-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1990,
+   "location": {
+    "latitude": 38.6406541,
+    "longitude": 67.8096959
+   },
+   "osm": {
+    "type": "way",
+    "id": 308059941,
+    "url": "https://www.openstreetmap.org/way/308059941"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 500,
+    "activeMillionM3": 470,
+    "deadMillionM3": 30,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 960,
+    "surfaceKm2": 8.85,
+    "lengthKm": 25
+   },
+   "dam": {
+    "type": "Rock-fill dam",
+    "heightM": 180,
+    "lengthM": 410
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-way-308059941",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/way/308059941",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element way/308059941 (\"To'palang suv ombori\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "tuyamuyun-hydroscheme",
+   "kind": "reservoir",
+   "nameEn": "Tuyamuyun hydroscheme",
+   "nameSource": "Tuyamuyun hydroscheme",
+   "region": "Khorezm",
+   "basin": "Amu Darya",
+   "waterSourceNames": [
+    "Amudarya river"
+   ],
+   "reservoirType": "In-stream",
+   "purposes": [
+    "irrigation",
+    "hydropower"
+   ],
+   "yearCommissioned": 1979,
+   "location": {
+    "latitude": 41.2291603,
+    "longitude": 61.5892348
+   },
+   "osm": {
+    "type": "relation",
+    "id": 12669690,
+    "url": "https://www.openstreetmap.org/relation/12669690"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 7800,
+    "activeMillionM3": 5270,
+    "deadMillionM3": 2550,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 130,
+    "surfaceKm2": 790,
+    "lengthKm": null
+   },
+   "dam": {
+    "type": "Earth dam",
+    "heightM": 34,
+    "lengthM": 900
+   },
+   "hydropowerDesignMW": 150,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-relation-12669690",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/relation/12669690",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element relation/12669690 (\"DÃ¼Ã½eboÃ½un/TuyamoÊ»yin Reservoir\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": [
+     "Source inconsistency preserved as published: active (5270) + dead (2550) != total (7800) million m3."
+    ]
+   }
+  },
+  {
+   "id": "tuyabuguz-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Tuyabuguz reservoir",
+   "nameSource": "Tuyabuguz reservoir (Tashkent Sea)",
+   "region": "Tashkent",
+   "basin": "Syr Darya",
+   "waterSourceNames": [
+    "Akhangaran river"
+   ],
+   "reservoirType": "In-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1963,
+   "location": {
+    "latitude": 40.9643056,
+    "longitude": 69.3277193
+   },
+   "osm": {
+    "type": "relation",
+    "id": 2722442,
+    "url": "https://www.openstreetmap.org/relation/2722442"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 250,
+    "activeMillionM3": 224,
+    "deadMillionM3": 26,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 394,
+    "surfaceKm2": 16.2,
+    "lengthKm": 9
+   },
+   "dam": {
+    "type": "Earth dam",
+    "heightM": 36.5,
+    "lengthM": 2815
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-relation-2722442",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/relation/2722442",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element relation/2722442 (\"Tuyabuguz Reservoir (Tashmore)\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "uchkizil-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Uchkizil reservoir",
+   "nameSource": "Uchkizil reservoir",
+   "region": "Surkhandarya",
+   "basin": "Amu Darya",
+   "waterSourceNames": [
+    "Amu-Zang river"
+   ],
+   "reservoirType": "Off-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1957,
+   "location": {
+    "latitude": 37.3583965,
+    "longitude": 67.2311302
+   },
+   "osm": {
+    "type": "relation",
+    "id": 3301244,
+    "url": "https://www.openstreetmap.org/relation/3301244"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 160,
+    "activeMillionM3": 80,
+    "deadMillionM3": 80,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 321.5,
+    "surfaceKm2": 10,
+    "lengthKm": 5.5
+   },
+   "dam": {
+    "type": "Earth dam",
+    "heightM": 11.5,
+    "lengthM": 1750
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-relation-3301244",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/relation/3301244",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element relation/3301244 (\"Uchkyzyl Reservoir\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": []
+   }
+  },
+  {
+   "id": "zaamin-reservoir",
+   "kind": "reservoir",
+   "nameEn": "Zaamin reservoir",
+   "nameSource": "Zaamin reservoir",
+   "region": "Jizzakh",
+   "basin": "Syr Darya",
+   "waterSourceNames": [
+    "Zaaminsu river"
+   ],
+   "reservoirType": "In-stream",
+   "purposes": [
+    "irrigation"
+   ],
+   "yearCommissioned": 1987,
+   "location": {
+    "latitude": 39.8901084,
+    "longitude": 68.677061
+   },
+   "osm": {
+    "type": "way",
+    "id": 32722157,
+    "url": "https://www.openstreetmap.org/way/32722157"
+   },
+   "geometryRef": null,
+   "storage": {
+    "kind": "design-capacity",
+    "designTotalMillionM3": 51,
+    "activeMillionM3": 30,
+    "deadMillionM3": 20,
+    "measuredStorageMillionM3": null,
+    "measuredAsOf": null,
+    "normalLevelM": 917,
+    "surfaceKm2": 14,
+    "lengthKm": 3.24
+   },
+   "dam": {
+    "type": "Earth dam",
+    "heightM": 73.5,
+    "lengthM": 408
+   },
+   "hydropowerDesignMW": null,
+   "discharge": null,
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "osm-way-32722157",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/way/32722157",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Reservoir centre coordinates from named OSM element way/32722157 (\"Hojamushkent reserior\"). Centre of the mapped water body, not a surveyed dam location."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "osm-matched-centre",
+    "capacityStatus": "published-design-not-measured",
+    "notes": [
+     "Source inconsistency preserved as published: active (30) + dead (20) != total (51) million m3."
+    ]
+   }
+  },
+  {
+   "id": "zarafshan-river",
+   "kind": "river",
+   "nameEn": "Zarafshan River",
+   "nameSource": "Zarafshan River",
+   "region": null,
+   "basin": "Zarafshan",
+   "waterSourceNames": [],
+   "reservoirType": null,
+   "purposes": [],
+   "yearCommissioned": null,
+   "location": null,
+   "osm": {
+    "type": "relation",
+    "id": 3303320,
+    "url": "https://www.openstreetmap.org/relation/3303320"
+   },
+   "geometryRef": "public/data/samarkand-waterways.json",
+   "storage": null,
+   "dam": null,
+   "hydropowerDesignMW": null,
+   "discharge": {
+    "modeledMeanM3S": null,
+    "modeledKind": "hydrorivers-modeled-long-term-average-not-extracted",
+    "observedMeanM3S": null,
+    "observedAsOf": null
+   },
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "hydrosheds-hydrorivers",
+     "publisher": "HydroSHEDS / HydroRIVERS (WWF, McGill)",
+     "url": "https://www.hydrosheds.org/products/hydrorivers",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Consulted for modeled river-network/discharge context (15 arc-second reaches, modeled long-term average discharge attribute). No discharge value is stored: HydroRIVERS reaches carry no river names, so a named-river join could not be verified in this build."
+    },
+    {
+     "sourceId": "osm-relation-3303320",
+     "publisher": "OpenStreetMap contributors (ODbL)",
+     "url": "https://www.openstreetmap.org/relation/3303320",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Zarafshan waterway geometry as already held in this repository at public/data/samarkand-waterways.json (Samarkand reach ways, e.g. OSM ways 22820528, 244322077, 244322078). Partial reach geometry, not the full river."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "unverified-null",
+    "capacityStatus": "not-applicable",
+    "notes": [
+     "River named as a water source in the CAWater reservoir inventory. No observed flow or modeled discharge value is stored; both are null rather than estimated."
+    ]
+   }
+  },
+  {
+   "id": "amu-darya-river",
+   "kind": "river",
+   "nameEn": "Amu Darya River",
+   "nameSource": "Amu Darya River",
+   "region": null,
+   "basin": "Amu Darya",
+   "waterSourceNames": [],
+   "reservoirType": null,
+   "purposes": [],
+   "yearCommissioned": null,
+   "location": null,
+   "osm": null,
+   "geometryRef": null,
+   "storage": null,
+   "dam": null,
+   "hydropowerDesignMW": null,
+   "discharge": {
+    "modeledMeanM3S": null,
+    "modeledKind": "hydrorivers-modeled-long-term-average-not-extracted",
+    "observedMeanM3S": null,
+    "observedAsOf": null
+   },
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "hydrosheds-hydrorivers",
+     "publisher": "HydroSHEDS / HydroRIVERS (WWF, McGill)",
+     "url": "https://www.hydrosheds.org/products/hydrorivers",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Consulted for modeled river-network/discharge context (15 arc-second reaches, modeled long-term average discharge attribute). No discharge value is stored: HydroRIVERS reaches carry no river names, so a named-river join could not be verified in this build."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "unverified-null",
+    "capacityStatus": "not-applicable",
+    "notes": [
+     "River named as a water source in the CAWater reservoir inventory. No observed flow or modeled discharge value is stored; both are null rather than estimated."
+    ]
+   }
+  },
+  {
+   "id": "syr-darya-river",
+   "kind": "river",
+   "nameEn": "Syr Darya River",
+   "nameSource": "Syr Darya River",
+   "region": null,
+   "basin": "Syr Darya",
+   "waterSourceNames": [],
+   "reservoirType": null,
+   "purposes": [],
+   "yearCommissioned": null,
+   "location": null,
+   "osm": null,
+   "geometryRef": null,
+   "storage": null,
+   "dam": null,
+   "hydropowerDesignMW": null,
+   "discharge": {
+    "modeledMeanM3S": null,
+    "modeledKind": "hydrorivers-modeled-long-term-average-not-extracted",
+    "observedMeanM3S": null,
+    "observedAsOf": null
+   },
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "hydrosheds-hydrorivers",
+     "publisher": "HydroSHEDS / HydroRIVERS (WWF, McGill)",
+     "url": "https://www.hydrosheds.org/products/hydrorivers",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Consulted for modeled river-network/discharge context (15 arc-second reaches, modeled long-term average discharge attribute). No discharge value is stored: HydroRIVERS reaches carry no river names, so a named-river join could not be verified in this build."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "unverified-null",
+    "capacityStatus": "not-applicable",
+    "notes": [
+     "River named as a water source in the CAWater reservoir inventory. No observed flow or modeled discharge value is stored; both are null rather than estimated."
+    ]
+   }
+  },
+  {
+   "id": "chirchiq-river",
+   "kind": "river",
+   "nameEn": "Chirchiq River",
+   "nameSource": "Chirchiq River",
+   "region": null,
+   "basin": "Syr Darya",
+   "waterSourceNames": [
+    "Syr Darya River"
+   ],
+   "reservoirType": null,
+   "purposes": [],
+   "yearCommissioned": null,
+   "location": null,
+   "osm": null,
+   "geometryRef": null,
+   "storage": null,
+   "dam": null,
+   "hydropowerDesignMW": null,
+   "discharge": {
+    "modeledMeanM3S": null,
+    "modeledKind": "hydrorivers-modeled-long-term-average-not-extracted",
+    "observedMeanM3S": null,
+    "observedAsOf": null
+   },
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "hydrosheds-hydrorivers",
+     "publisher": "HydroSHEDS / HydroRIVERS (WWF, McGill)",
+     "url": "https://www.hydrosheds.org/products/hydrorivers",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Consulted for modeled river-network/discharge context (15 arc-second reaches, modeled long-term average discharge attribute). No discharge value is stored: HydroRIVERS reaches carry no river names, so a named-river join could not be verified in this build."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "unverified-null",
+    "capacityStatus": "not-applicable",
+    "notes": [
+     "River named as a water source in the CAWater reservoir inventory. No observed flow or modeled discharge value is stored; both are null rather than estimated."
+    ]
+   }
+  },
+  {
+   "id": "akhangaran-river",
+   "kind": "river",
+   "nameEn": "Akhangaran River",
+   "nameSource": "Akhangaran River",
+   "region": null,
+   "basin": "Syr Darya",
+   "waterSourceNames": [
+    "Chirchiq River"
+   ],
+   "reservoirType": null,
+   "purposes": [],
+   "yearCommissioned": null,
+   "location": null,
+   "osm": null,
+   "geometryRef": null,
+   "storage": null,
+   "dam": null,
+   "hydropowerDesignMW": null,
+   "discharge": {
+    "modeledMeanM3S": null,
+    "modeledKind": "hydrorivers-modeled-long-term-average-not-extracted",
+    "observedMeanM3S": null,
+    "observedAsOf": null
+   },
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "hydrosheds-hydrorivers",
+     "publisher": "HydroSHEDS / HydroRIVERS (WWF, McGill)",
+     "url": "https://www.hydrosheds.org/products/hydrorivers",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Consulted for modeled river-network/discharge context (15 arc-second reaches, modeled long-term average discharge attribute). No discharge value is stored: HydroRIVERS reaches carry no river names, so a named-river join could not be verified in this build."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "unverified-null",
+    "capacityStatus": "not-applicable",
+    "notes": [
+     "River named as a water source in the CAWater reservoir inventory. No observed flow or modeled discharge value is stored; both are null rather than estimated."
+    ]
+   }
+  },
+  {
+   "id": "kashkadarya-river",
+   "kind": "river",
+   "nameEn": "Kashkadarya River",
+   "nameSource": "Kashkadarya River",
+   "region": null,
+   "basin": "Amu Darya",
+   "waterSourceNames": [
+    "Amu Darya River"
+   ],
+   "reservoirType": null,
+   "purposes": [],
+   "yearCommissioned": null,
+   "location": null,
+   "osm": null,
+   "geometryRef": null,
+   "storage": null,
+   "dam": null,
+   "hydropowerDesignMW": null,
+   "discharge": {
+    "modeledMeanM3S": null,
+    "modeledKind": "hydrorivers-modeled-long-term-average-not-extracted",
+    "observedMeanM3S": null,
+    "observedAsOf": null
+   },
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "hydrosheds-hydrorivers",
+     "publisher": "HydroSHEDS / HydroRIVERS (WWF, McGill)",
+     "url": "https://www.hydrosheds.org/products/hydrorivers",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Consulted for modeled river-network/discharge context (15 arc-second reaches, modeled long-term average discharge attribute). No discharge value is stored: HydroRIVERS reaches carry no river names, so a named-river join could not be verified in this build."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "unverified-null",
+    "capacityStatus": "not-applicable",
+    "notes": [
+     "River named as a water source in the CAWater reservoir inventory. No observed flow or modeled discharge value is stored; both are null rather than estimated."
+    ]
+   }
+  },
+  {
+   "id": "surkhandarya-river",
+   "kind": "river",
+   "nameEn": "Surkhandarya River",
+   "nameSource": "Surkhandarya River",
+   "region": null,
+   "basin": "Amu Darya",
+   "waterSourceNames": [
+    "Amu Darya River"
+   ],
+   "reservoirType": null,
+   "purposes": [],
+   "yearCommissioned": null,
+   "location": null,
+   "osm": null,
+   "geometryRef": null,
+   "storage": null,
+   "dam": null,
+   "hydropowerDesignMW": null,
+   "discharge": {
+    "modeledMeanM3S": null,
+    "modeledKind": "hydrorivers-modeled-long-term-average-not-extracted",
+    "observedMeanM3S": null,
+    "observedAsOf": null
+   },
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "hydrosheds-hydrorivers",
+     "publisher": "HydroSHEDS / HydroRIVERS (WWF, McGill)",
+     "url": "https://www.hydrosheds.org/products/hydrorivers",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Consulted for modeled river-network/discharge context (15 arc-second reaches, modeled long-term average discharge attribute). No discharge value is stored: HydroRIVERS reaches carry no river names, so a named-river join could not be verified in this build."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "unverified-null",
+    "capacityStatus": "not-applicable",
+    "notes": [
+     "River named as a water source in the CAWater reservoir inventory. No observed flow or modeled discharge value is stored; both are null rather than estimated."
+    ]
+   }
+  },
+  {
+   "id": "karadarya-river",
+   "kind": "river",
+   "nameEn": "Karadarya River",
+   "nameSource": "Karadarya River",
+   "region": null,
+   "basin": "Syr Darya",
+   "waterSourceNames": [
+    "Syr Darya River"
+   ],
+   "reservoirType": null,
+   "purposes": [],
+   "yearCommissioned": null,
+   "location": null,
+   "osm": null,
+   "geometryRef": null,
+   "storage": null,
+   "dam": null,
+   "hydropowerDesignMW": null,
+   "discharge": {
+    "modeledMeanM3S": null,
+    "modeledKind": "hydrorivers-modeled-long-term-average-not-extracted",
+    "observedMeanM3S": null,
+    "observedAsOf": null
+   },
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "hydrosheds-hydrorivers",
+     "publisher": "HydroSHEDS / HydroRIVERS (WWF, McGill)",
+     "url": "https://www.hydrosheds.org/products/hydrorivers",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Consulted for modeled river-network/discharge context (15 arc-second reaches, modeled long-term average discharge attribute). No discharge value is stored: HydroRIVERS reaches carry no river names, so a named-river join could not be verified in this build."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "unverified-null",
+    "capacityStatus": "not-applicable",
+    "notes": [
+     "River named as a water source in the CAWater reservoir inventory. No observed flow or modeled discharge value is stored; both are null rather than estimated."
+    ]
+   }
+  },
+  {
+   "id": "akdarya-river",
+   "kind": "river",
+   "nameEn": "Akdarya River",
+   "nameSource": "Akdarya River",
+   "region": null,
+   "basin": "Zarafshan",
+   "waterSourceNames": [
+    "Zarafshan River"
+   ],
+   "reservoirType": null,
+   "purposes": [],
+   "yearCommissioned": null,
+   "location": null,
+   "osm": null,
+   "geometryRef": null,
+   "storage": null,
+   "dam": null,
+   "hydropowerDesignMW": null,
+   "discharge": {
+    "modeledMeanM3S": null,
+    "modeledKind": "hydrorivers-modeled-long-term-average-not-extracted",
+    "observedMeanM3S": null,
+    "observedAsOf": null
+   },
+   "provenance": [
+    {
+     "sourceId": "cawater-reservoirs-uz",
+     "publisher": "CAWater-Info (SIC ICWC) Knowledge Base",
+     "url": "https://cawater-info.net/bk/1-1-1-1-3-uz_e.htm",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Named reservoir inventory: region, water source, type, purpose, commissioning year, design capacities, surface area, dam and hydropower design data."
+    },
+    {
+     "sourceId": "hydrosheds-hydrorivers",
+     "publisher": "HydroSHEDS / HydroRIVERS (WWF, McGill)",
+     "url": "https://www.hydrosheds.org/products/hydrorivers",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": null,
+     "role": "Consulted for modeled river-network/discharge context (15 arc-second reaches, modeled long-term average discharge attribute). No discharge value is stored: HydroRIVERS reaches carry no river names, so a named-river join could not be verified in this build."
+    }
+   ],
+   "quality": {
+    "coordinateStatus": "unverified-null",
+    "capacityStatus": "not-applicable",
+    "notes": [
+     "River named as a water source in the CAWater reservoir inventory. No observed flow or modeled discharge value is stored; both are null rather than estimated."
+    ]
+   }
+  }
+ ],
+ "statistics": [
+  {
+   "id": "uz-irrigation-withdrawal-siat",
+   "indicator": "Total water withdrawal for irrigation, Republic of Uzbekistan (national total only in the published table)",
+   "unit": "million m3/year",
+   "kind": "official-reported-statistic-not-field-measurement",
+   "values": [
+    {
+     "year": 2013,
+     "value": 48912.32
+    },
+    {
+     "year": 2014,
+     "value": 46857.45
+    },
+    {
+     "year": 2015,
+     "value": 49969.94
+    },
+    {
+     "year": 2016,
+     "value": 49429.28
+    },
+    {
+     "year": 2017,
+     "value": 53744.97
+    },
+    {
+     "year": 2018,
+     "value": 45696.01
+    },
+    {
+     "year": 2019,
+     "value": 48562.85
+    },
+    {
+     "year": 2020,
+     "value": 45930.4
+    },
+    {
+     "year": 2021,
+     "value": 38452.1
+    },
+    {
+     "year": 2022,
+     "value": 38838.5
+    },
+    {
+     "year": 2023,
+     "value": 40022.5
+    },
+    {
+     "year": 2024,
+     "value": 39934.5
+    },
+    {
+     "year": 2025,
+     "value": 40681
+    }
+   ],
+   "provenance": [
+    {
+     "sourceId": "siat-3506",
+     "url": "https://siat.stat.uz/data/3506/?lang=en",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": "2024-04-02",
+     "updatedAt": "2026-04-28",
+     "license": "CC BY 4.0",
+     "role": "Annual national irrigation withdrawal as published (SIAT data file via api.siat.stat.uz, indicator 3.01.02.0002)."
+    }
+   ],
+   "notes": [
+    "National aggregate; no regional breakdown is published in this indicator table, so no regional values are stored."
+   ]
+  },
+  {
+   "id": "uz-total-dam-capacity-aquastat",
+   "indicator": "Total dam capacity, Uzbekistan (AQUASTAT survey, as reported in Irrigation in Central Asia in Figures)",
+   "unit": "km3",
+   "kind": "reported-aggregate-design-capacity",
+   "values": [
+    {
+     "year": 2012,
+     "value": 22.2
+    }
+   ],
+   "provenance": [
+    {
+     "sourceId": "fao-aquastat-2012",
+     "url": "https://www.fao.org/4/i3289e/i3289e.pdf",
+     "retrievedAt": "2026-10-26",
+     "publicationDate": "2012",
+     "role": "AQUASTAT-reported national dam capacity aggregate (22.2 km3; the same survey reports at least 50 reservoirs totalling over 22 km3)."
+    }
+   ],
+   "notes": [
+    "National design-capacity aggregate; it exceeds the sum of the 24 CAWater records in this dataset because CAWater does not list every Uzbek reservoir. Not measured storage."
+   ]
+  }
+ ]
+}

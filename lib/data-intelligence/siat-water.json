@@ -1,0 +1,321 @@
+{
+ "kind": "siat-water-withdrawal",
+ "retrievedAt": "2026-10-29",
+ "datasets": [
+  {
+   "datasetId": 3505,
+   "indicatorCode": "3.01.02.0001",
+   "indicator": "Total water withdrawal",
+   "unit": "million cubic meters",
+   "periodicity": "annual",
+   "preparer": "Ministry of Water Resources of the Republic of Uzbekistan",
+   "sourceUrl": "https://siat.stat.uz/data/3505/?lang=en",
+   "downloadUrl": "https://api.siat.stat.uz/media/uploads/sdmx/sdmx_data_3505.json?v=1777384958322078477",
+   "updatedAt": "2026-04-28",
+   "retrievedAt": "2026-10-29",
+   "measurementKind": "reported",
+   "license": "Uzbekistan official statistics (SIAT portal terms); prepared by the Ministry of Water Resources",
+   "rows": [
+    {
+     "geography": "Republic of Uzbekistan",
+     "code": "1700",
+     "values": {
+      "2013": 53977.29,
+      "2014": 51793.92,
+      "2015": 55138.28,
+      "2016": 54555.71,
+      "2017": 58918.31,
+      "2018": 51002.74,
+      "2019": 53975.86,
+      "2020": 51217.17,
+      "2021": 43661.6,
+      "2022": 44487.6,
+      "2023": 45961.5,
+      "2024": 45280.6,
+      "2025": 45533.8
+     }
+    }
+   ]
+  },
+  {
+   "datasetId": 3506,
+   "indicatorCode": "3.01.02.0002",
+   "indicator": "Total water withdrawal: for irrigation",
+   "unit": "million cubic meters",
+   "periodicity": "annual",
+   "preparer": "Ministry of Water Resources of the Republic of Uzbekistan",
+   "sourceUrl": "https://siat.stat.uz/data/3506/?lang=en",
+   "downloadUrl": "https://api.siat.stat.uz/media/uploads/sdmx/sdmx_data_3506.json",
+   "updatedAt": "2026-04-28",
+   "retrievedAt": "2026-10-29",
+   "measurementKind": "reported",
+   "license": "Uzbekistan official statistics (SIAT portal terms); prepared by the Ministry of Water Resources",
+   "rows": [
+    {
+     "geography": "Republic of Uzbekistan",
+     "code": "1700",
+     "values": {
+      "2013": 48912.32,
+      "2014": 46857.45,
+      "2015": 49969.94,
+      "2016": 49429.28,
+      "2017": 53744.97,
+      "2018": 45696.01,
+      "2019": 48562.85,
+      "2020": 45930.4,
+      "2021": 38452.1,
+      "2022": 38838.5,
+      "2023": 40022.5,
+      "2024": 39934.5,
+      "2025": 40681.0
+     }
+    }
+   ]
+  },
+  {
+   "datasetId": 3507,
+   "indicatorCode": "3.01.02.0003",
+   "indicator": "Total water withdrawal: for industrial, communal and technical needs",
+   "unit": "million cubic meters",
+   "periodicity": "annual",
+   "preparer": "Ministry of Water Resources of the Republic of Uzbekistan",
+   "sourceUrl": "https://siat.stat.uz/data/3507/?lang=en",
+   "downloadUrl": "https://api.siat.stat.uz/media/uploads/sdmx/sdmx_data_3507.json?v=1777385073555727277",
+   "updatedAt": "2026-04-28",
+   "retrievedAt": "2026-10-29",
+   "measurementKind": "reported",
+   "license": "Uzbekistan official statistics (SIAT portal terms); prepared by the Ministry of Water Resources",
+   "rows": [
+    {
+     "geography": "Republic of Uzbekistan",
+     "code": "1700",
+     "values": {
+      "2013": 4486.37,
+      "2014": 4425.27,
+      "2015": 4721.84,
+      "2016": 4552.43,
+      "2017": 4640.44,
+      "2018": 4571.63,
+      "2019": 4677.81,
+      "2020": 4549.37,
+      "2021": 4472.1,
+      "2022": 5649.1,
+      "2023": 5204.0,
+      "2024": 4610.9,
+      "2025": 4869.2
+     }
+    }
+   ]
+  },
+  {
+   "datasetId": 3508,
+   "indicatorCode": "3.01.02.0004",
+   "indicator": "Total water withdrawal: for industrial, communal and technical needs: total withdrawal for energy",
+   "unit": "million cubic meters",
+   "periodicity": "annual",
+   "preparer": "Ministry of Water Resources of the Republic of Uzbekistan",
+   "sourceUrl": "https://siat.stat.uz/data/3508/?lang=en",
+   "downloadUrl": "https://api.siat.stat.uz/media/uploads/sdmx/sdmx_data_3508.json?v=1777385101668134451",
+   "updatedAt": "2026-04-28",
+   "retrievedAt": "2026-10-29",
+   "measurementKind": "reported",
+   "license": "Uzbekistan official statistics (SIAT portal terms); prepared by the Ministry of Water Resources",
+   "rows": [
+    {
+     "geography": "Republic of Uzbekistan",
+     "code": "1700",
+     "values": {
+      "2013": 4553.59,
+      "2014": 4561.49,
+      "2015": 4486.71,
+      "2016": 4457.64,
+      "2017": 4765.19,
+      "2018": 5141.19,
+      "2019": 5195.34,
+      "2020": 5099.59,
+      "2021": 5157.6,
+      "2022": 4712.9,
+      "2023": 4634.5,
+      "2024": 4762.2,
+      "2025": 3614.6
+     }
+    }
+   ]
+  },
+  {
+   "datasetId": 3509,
+   "indicatorCode": "3.01.02.0005",
+   "indicator": "Total water withdrawal: for industrial, communal and technical needs: used irrevocably in the energy sector",
+   "unit": "million cubic meters",
+   "periodicity": "annual",
+   "preparer": "Ministry of Water Resources of the Republic of Uzbekistan",
+   "sourceUrl": "https://siat.stat.uz/data/3509/?lang=en",
+   "downloadUrl": "https://api.siat.stat.uz/media/uploads/sdmx/sdmx_data_3509.json?v=1777385127228506164",
+   "updatedAt": "2026-04-28",
+   "retrievedAt": "2026-10-29",
+   "measurementKind": "reported",
+   "license": "Uzbekistan official statistics (SIAT portal terms); prepared by the Ministry of Water Resources",
+   "rows": [
+    {
+     "geography": "Republic of Uzbekistan",
+     "code": "1700",
+     "values": {
+      "2013": 250.1,
+      "2014": 255.8,
+      "2015": 252.33,
+      "2016": 253.6,
+      "2017": 272.3,
+      "2018": 300.6,
+      "2019": 315.29,
+      "2020": 294.4,
+      "2021": 324.7,
+      "2022": 343.9,
+      "2023": 369.9,
+      "2024": 277.5,
+      "2025": 75.3
+     }
+    }
+   ]
+  },
+  {
+   "datasetId": 3510,
+   "indicatorCode": "3.01.02.0006",
+   "indicator": "Total water withdrawal: for industrial, communal and technical needs: industry",
+   "unit": "million cubic meters",
+   "periodicity": "annual",
+   "preparer": "Ministry of Water Resources of the Republic of Uzbekistan",
+   "sourceUrl": "https://siat.stat.uz/data/3510/?lang=en",
+   "downloadUrl": "https://api.siat.stat.uz/media/uploads/sdmx/sdmx_data_3510.json?v=1777385297303011065",
+   "updatedAt": "2026-04-28",
+   "retrievedAt": "2026-10-29",
+   "measurementKind": "reported",
+   "license": "Uzbekistan official statistics (SIAT portal terms); prepared by the Ministry of Water Resources",
+   "rows": [
+    {
+     "geography": "Republic of Uzbekistan",
+     "code": "1700",
+     "values": {
+      "2013": 675.4,
+      "2014": 691.2,
+      "2015": 666.7,
+      "2016": 707.11,
+      "2017": 709.56,
+      "2018": 799.05,
+      "2019": 790.12,
+      "2020": 749.7,
+      "2021": 745.5,
+      "2022": 854.1,
+      "2023": 850.0,
+      "2024": 866.0,
+      "2025": 530.6
+     }
+    }
+   ]
+  },
+  {
+   "datasetId": 3511,
+   "indicatorCode": "3.01.02.0007",
+   "indicator": "Total water withdrawal: for industrial, communal and technical needs: communal services",
+   "unit": "million cubic meters",
+   "periodicity": "annual",
+   "preparer": "Ministry of Water Resources of the Republic of Uzbekistan",
+   "sourceUrl": "https://siat.stat.uz/data/3511/?lang=en",
+   "downloadUrl": "https://api.siat.stat.uz/media/uploads/sdmx/sdmx_data_3511.json?v=1777385232586051961",
+   "updatedAt": "2026-04-28",
+   "retrievedAt": "2026-10-29",
+   "measurementKind": "reported",
+   "license": "Uzbekistan official statistics (SIAT portal terms); prepared by the Ministry of Water Resources",
+   "rows": [
+    {
+     "geography": "Republic of Uzbekistan",
+     "code": "1700",
+     "values": {
+      "2013": 2357.45,
+      "2014": 2334.72,
+      "2015": 2406.73,
+      "2016": 2436.05,
+      "2017": 2408.47,
+      "2018": 2343.77,
+      "2019": 2336.88,
+      "2020": 2262.37,
+      "2021": 2160.0,
+      "2022": 2277.8,
+      "2023": 2213.9,
+      "2024": 2141.4,
+      "2025": 2188.1
+     }
+    }
+   ]
+  },
+  {
+   "datasetId": 3512,
+   "indicatorCode": "3.01.02.0008",
+   "indicator": "Total water withdrawal: for industrial, communal and technical needs: fish farming",
+   "unit": "million cubic meters",
+   "periodicity": "annual",
+   "preparer": "Ministry of Water Resources of the Republic of Uzbekistan",
+   "sourceUrl": "https://siat.stat.uz/data/3512/?lang=en",
+   "downloadUrl": "https://api.siat.stat.uz/media/uploads/sdmx/sdmx_data_3512.json",
+   "updatedAt": "2026-04-28",
+   "retrievedAt": "2026-10-29",
+   "measurementKind": "reported",
+   "license": "Uzbekistan official statistics (SIAT portal terms); prepared by the Ministry of Water Resources",
+   "rows": [
+    {
+     "geography": "Republic of Uzbekistan",
+     "code": "1700",
+     "values": {
+      "2013": 621.42,
+      "2014": 561.85,
+      "2015": 803.05,
+      "2016": 576.37,
+      "2017": 666.21,
+      "2018": 541.66,
+      "2019": 649.72,
+      "2020": 746.9,
+      "2021": 746.9,
+      "2022": 806.0,
+      "2023": 1231.3,
+      "2024": 924.6,
+      "2025": 1002.2
+     }
+    }
+   ]
+  },
+  {
+   "datasetId": 3513,
+   "indicatorCode": "3.01.02.0009",
+   "indicator": "Total water withdrawal: for industrial, communal and technical needs: other",
+   "unit": "million cubic meters",
+   "periodicity": "annual",
+   "preparer": "Ministry of Water Resources of the Republic of Uzbekistan",
+   "sourceUrl": "https://siat.stat.uz/data/3513/?lang=en",
+   "downloadUrl": "https://api.siat.stat.uz/media/uploads/sdmx/sdmx_data_3513.json",
+   "updatedAt": "2026-04-28",
+   "retrievedAt": "2026-10-29",
+   "measurementKind": "reported",
+   "license": "Uzbekistan official statistics (SIAT portal terms); prepared by the Ministry of Water Resources",
+   "rows": [
+    {
+     "geography": "Republic of Uzbekistan",
+     "code": "1700",
+     "values": {
+      "2013": 582.0,
+      "2014": 581.7,
+      "2015": 593.03,
+      "2016": 579.3,
+      "2017": 583.9,
+      "2018": 586.55,
+      "2019": 585.8,
+      "2020": 496.0,
+      "2021": 495.1,
+      "2022": 639.0,
+      "2023": 523.7,
+      "2024": 401.4,
+      "2025": 2229.0
+     }
+    }
+   ]
+  }
+ ]
+}

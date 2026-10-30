@@ -1,0 +1,14 @@
+import type {FarmProfile} from '../../lib/farm-profile';
+import type {Language} from '../../lib/i18n-labels';
+import {local,UNKNOWN_LABELS} from './product';
+export default function ProfileEvidence({profile:p,language}:{profile:FarmProfile;language:Language}){
+ const l=local(language),soil=p.evidence.soil;
+ return <details className="profile-evidence"><summary>{l('Evidence behind this result','Natija dalillari','Источники этого результата')}</summary>
+  <p>{l('Scientific source notes below retain their original wording.','Quyidagi ilmiy manba izohlari asl tilida saqlangan.','Научные пояснения ниже сохранены на языке источника.')}</p>
+  <h3>{l('Forecast','Prognoz','Прогноз')}</h3>{p.irrigation?<><p>Open-Meteo · {p.irrigation.forecastDays[0]?.date} — {p.irrigation.forecastDays.at(-1)?.date}</p><p>{new Date(p.irrigation.provenance.weather.retrievedAt).toLocaleString(language)} · {p.irrigation.provenance.weather.cacheStatus}</p><a href={p.irrigation.provenance.weather.sourceUrl} target="_blank" rel="noreferrer">Open-Meteo ↗</a></>:<p>{l('Unavailable','Mavjud emas','Нет данных')}</p>}
+  {soil&&<><h3>SoilGrids · Saxton–Rawls</h3><p>{soil.source}</p><p>{soil.note}</p><p>{soil.estimateBasis==='regional-fallback'?l('Regional fallback; no valid local cell','Mahalliy katak yo‘q; mintaqaviy baho','Региональная оценка: локальная ячейка недоступна'):l('Modelled local grid, approximately 1 km','Mahalliy model to‘ri, taxminan 1 km','Локальная модельная сетка, около 1 км')}</p><details><summary>{l('Independent validation: Khorezm','Mustaqil tekshiruv: Xorazm','Независимая проверка: Хорезм')}</summary><p>{soil.validationContext.interpretation}</p><table><thead><tr><th>{l('Property','Xossa','Свойство')}</th><th>{l('Lab','Laboratoriya','Лаборатория')}</th><th>{l('Model','Model','Модель')}</th></tr></thead><tbody>{Object.entries(soil.validationContext.properties).map(([key,v])=><tr key={key}><th>{({sandPct:'Sand / %',siltPct:'Silt / %',clayPct:'Clay / %',organicCarbonGPerKg:'SOC / g/kg',ph:'pH'} as Record<string,string>)[key]}</th><td>{v.measured}</td><td>{v.modelled}</td></tr>)}</tbody></table><p>{soil.validationContext.measuredSource}</p></details><details><summary>{l('Spatial coverage and uncertainty','Hududiy qamrov va noaniqlik','Покрытие и неопределённость')}</summary><p>{soil.withinRegionSpread}</p><pre>{JSON.stringify(soil.farmEstimate,null,2)}</pre></details></>}
+  <h3>{l('Unknowns','Noma’lumlar','Неизвестные данные')}</h3>{p.unknowns.map(u=><details key={u.field}><summary>{l(...(UNKNOWN_LABELS[u.field]??[u.field,u.field,u.field]))}</summary><p>{u.effect}</p></details>)}
+  <h3>{l('Assumptions','Taxminlar','Допущения')}</h3>{p.assumptions.map(a=><p key={a}>{a}</p>)}
+  <details><summary>{l('Scientific advisories','Ilmiy izohlar','Научные пояснения')}</summary>{p.advisories.map(a=><p key={a.id}>{a.basis}</p>)}{p.soilMoisture.limitations.map(a=><p key={a}>{a}</p>)}</details>
+ </details>;
+}

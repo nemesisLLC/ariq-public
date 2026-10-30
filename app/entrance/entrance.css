@@ -1,0 +1,25 @@
+@font-face{font-family:Registan;src:url('/fonts/cormorant-garamond.ttf') format('truetype');font-display:swap}
+.registan-entrance{position:fixed;inset:0;isolation:isolate;overflow:hidden;background:#193957;color:#fff9eb;font-family:Onest,Arial,sans-serif;min-height:320px}
+.registan-scene{position:absolute;inset:0;z-index:-3;opacity:0;transition:opacity .65s ease}.is-ready .registan-scene{opacity:1}.registan-scene canvas{display:block;width:100%;height:100%}
+.registan-preview{position:absolute;inset:0;z-index:-4;background:url('/media/registan/preview.webp') center/cover no-repeat,url('/media/registan/preview-instant-v1.avif') center/cover no-repeat}
+.registan-vignette{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(180deg,#091b365c,transparent 27%,transparent 60%,#11243255)}
+.registan-top,.registan-bottom{position:absolute;left:4%;right:4%;display:flex;align-items:center;justify-content:space-between;gap:24px;text-shadow:0 2px 12px #071a31}
+.registan-top{top:max(26px,env(safe-area-inset-top));align-items:flex-start}.registan-brand h1{font-family:Registan,Georgia,serif;font-size:64px;font-weight:500;letter-spacing:.1em;line-height:.85;margin:0 0 14px}.registan-brand p{font-size:12px;letter-spacing:.025em;margin:0}
+.registan-languages{display:flex;gap:5px}.registan-entrance button{border:0;background:transparent;color:inherit;min-width:44px;min-height:44px;font-family:inherit}
+.registan-languages button{font-size:12px;background:#102c4777;border-radius:3px}.registan-languages button[aria-pressed=true]{color:#ffe5a9;text-decoration:underline;text-underline-offset:7px}
+.registan-title{position:absolute;bottom:9%;left:50%;transform:translateX(-50%);text-align:center;width:max-content;max-width:90%;transition:opacity .35s ease}
+.registan-title .registan-enter{display:flex;align-items:center;justify-content:center;gap:34px;width:300px;max-width:100%;height:70px;border:1px solid #ffedc4;border-radius:3px;padding:0 26px;background:#f3e6cb;color:#16334c;font-size:22px;font-weight:600;box-shadow:0 5px 30px #0b1e3a66,inset 0 0 0 3px #b59a6725;transition:transform .2s ease,background-color .2s ease,box-shadow .2s ease}
+.registan-enter svg{width:30px;height:24px;stroke:currentColor;stroke-width:1.4;fill:none;transition:transform .2s ease}.registan-title .registan-enter:hover{background:#fff3da;box-shadow:0 8px 36px #0b1e3a88;transform:translateY(-3px)}.registan-enter:hover svg{transform:translateX(4px)}.registan-title .registan-enter:active{transform:translateY(0) scale(.98)}
+.registan-bottom{bottom:max(18px,env(safe-area-inset-bottom));padding:0;border:0;background:none;margin:0;z-index:5;font-size:12px}.registan-bottom>span{max-width:min(65%,470px);line-height:1.6}.registan-bottom>button{font-size:12px;text-decoration:underline;text-underline-offset:5px;flex-shrink:0}
+.registan-entrance button:focus-visible,.registan-replay:focus-visible{outline:3px solid #fff;outline-offset:5px;box-shadow:0 0 0 6px #153d74}
+.is-entering .registan-title,.is-entering .registan-top{opacity:0;pointer-events:none;transition:opacity .35s}
+.registan-entrance::after{content:'';position:absolute;inset:0;background:#eff5f4;pointer-events:none;opacity:var(--threshold,0);z-index:4}
+.registan-app{outline:none}.registan-app-loading{position:fixed;inset:0;display:grid;place-items:center;background:#eff5f4;color:#29405b;font-size:18px}
+.registan-replay{position:fixed;bottom:12px;right:18px;z-index:10;border:1px solid #29405b40;background:#f8faf6ed;color:#29405b;font-size:11px;padding:10px 14px;min-height:44px;border-radius:4px}
+.registan-languages button:hover,.registan-bottom>button:hover{color:#fff;background:#102d4daa}
+@media(max-width:600px){.registan-preview{background-image:url('/media/registan/preview-mobile.webp'),url('/media/registan/preview-mobile-instant-v1.avif')}.registan-top,.registan-bottom{left:20px;right:20px}.registan-top{top:max(20px,env(safe-area-inset-top))}.registan-brand h1{font-size:43px;margin-bottom:10px}.registan-brand p{font-size:9px;max-width:135px;line-height:1.5}.registan-languages{gap:1px}.registan-languages button{font-size:11px;min-width:40px}.registan-title{bottom:12%}.registan-title .registan-enter{width:280px;height:66px;font-size:20px}.registan-bottom{font-size:10px;bottom:max(16px,env(safe-area-inset-bottom))}.registan-bottom>button{font-size:11px}}
+@media(max-height:520px){.registan-top{top:12px}.registan-brand h1{font-size:36px}.registan-brand p{font-size:10px}.registan-title{bottom:12%}.registan-title .registan-enter{height:58px;width:270px;font-size:20px}.registan-bottom{bottom:5px}}
+@media(prefers-reduced-motion:reduce){.registan-entrance *{transition:none!important}.registan-title .registan-enter:hover{transform:none}.registan-enter:hover svg{transform:none}}
+
+.review-clean .registan-top,.review-clean .registan-title,.review-clean .registan-bottom,.review-clean .registan-vignette{visibility:hidden}
+body:has(.review-clean) nextjs-portal{display:none}

@@ -1,0 +1,92 @@
+/* Atlas opening only. The unfinished scientific interfaces retain their checkpoint styles. */
+.museum-atlas{background:#d5cebe}
+.museum-atlas:not(.is-farm) .a-geography{inset:0;background:#d5cebe}
+.museum-atlas:not(.is-farm) .a-masthead{margin:0 52px;height:90px;border:0;background:none;gap:32px;pointer-events:none;color:#304b4b}
+.museum-atlas:not(.is-farm) .a-masthead>*{pointer-events:auto}
+.museum-atlas:not(.is-farm) .a-brand>span{font-size:33px;color:#243e42;letter-spacing:.13em}
+.museum-atlas:not(.is-farm) .a-brand>svg{width:29px;height:29px;stroke:#b69a68}
+.museum-atlas:not(.is-farm) .a-breadcrumb{font-size:12px}
+.museum-atlas:not(.is-farm) .a-breadcrumb button{color:#46605e;font-size:13px;font-weight:400}
+.museum-atlas:not(.is-farm) .a-preferences{gap:26px}
+.museum-atlas .a-lens-nav{display:flex;align-items:center;gap:2px;margin-left:auto;padding:3px;border:1px solid #b6aca0;border-radius:999px;background:#f2efe6d9}
+.museum-atlas .a-lens-nav button{appearance:none;border:0;background:transparent;border-radius:999px;color:#46605e;font:500 11px 'Onest ARIQ',sans-serif;letter-spacing:.02em;padding:7px 12px;min-height:32px;white-space:nowrap;cursor:pointer;transition:background .25s ease,color .25s ease}
+.museum-atlas .a-lens-nav button:hover{background:#e3ded0;color:#173f49}
+.museum-atlas .a-lens-nav button.is-active,.museum-atlas .a-lens-nav button[aria-pressed=true]{background:#173f49;color:#f2efe6}
+.museum-atlas .a-lens-nav button:focus-visible{outline:2px solid #177e91;outline-offset:2px}
+.museum-atlas:not(.is-farm) .a-preferences select{color:#344f50;background:#d5cebe;min-width:83px;font-size:11px}
+.museum-atlas .a-preferences select[hidden]{display:none!important}
+.museum-atlas .atlas-discover{position:relative;font-size:12px;color:#344f50;padding:0}
+.museum-atlas .atlas-discover>summary{font-size:12px;min-height:44px;color:inherit;list-style:none;display:flex;align-items:center;gap:12px;user-select:none}
+.museum-atlas .atlas-discover>summary:after{content:'⌄';font-size:14px;color:#b69a68}
+.museum-atlas .atlas-discover>div{position:absolute;top:52px;right:-10px;background:#f5f3ec;border:1px solid #bdab7a45;border-radius:4px;box-shadow:0 12px 45px #0005;padding:7px;width:215px}
+.museum-atlas .atlas-discover button{display:block;border:0;background:none;padding:13px 14px;min-height:44px;width:100%;text-align:left;font-size:12px;color:#304b4b}
+.museum-atlas .atlas-discover button:hover{background:#dbe7e1;color:#204f55}.museum-atlas .atlas-discover .discover-link{display:block;padding:13px 14px;min-height:44px;font-size:12px;color:#304b4b;text-decoration:none}.museum-atlas .atlas-discover .discover-link:hover{background:#dbe7e1;color:#204f55}
+.museum-atlas .atlas-primary{position:absolute;left:50%;transform:translateX(-50%);bottom:62px;z-index:7}
+.museum-atlas .atlas-primary .a-button{height:52px;min-width:210px;background:#176c78;border:1px solid #246f76;box-shadow:0 4px 24px #0003,inset 0 1px 0 #fff3;color:#ffffff;font-size:13px;font-weight:600;border-radius:4px;gap:25px;padding:13px 24px;transition:background .2s,transform .2s,box-shadow .2s}
+.museum-atlas .atlas-primary .a-button:hover{background:#14565e;box-shadow:0 4px 24px #c6a76620,inset 0 1px 0 #fff3;transform:translateY(-2px)}
+.museum-atlas .atlas-primary .a-button:active{transform:translateY(1px)}
+.museum-atlas .atlas-instruments{right:48px;top:auto;bottom:92px;gap:0;z-index:7}
+.museum-atlas .atlas-secondary-tools>button{height:44px;width:44px;background:none;color:#476260;display:grid;place-items:center;border:1px solid #8ba5ac36;border-radius:50%;transition:color .2s,border-color .2s}
+.museum-atlas .atlas-secondary-tools>button:hover{color:#e0cba3;border-color:#b69a68}
+.museum-atlas .a-layers{left:52px;bottom:98px}
+.museum-atlas .a-layers>.a-button{background:none;border:0;border-radius:0;color:#3c5c5b;font-size:11px;box-shadow:none;padding:7px 0;min-height:40px;gap:10px}
+.museum-atlas .a-layers>.a-button svg{width:17px;height:17px;color:#b69a68}
+.museum-atlas .layer-choices{background:#f5f3ec;border-color:#b69a6859;color:#304b4b;box-shadow:0 15px 45px #0004;bottom:50px;width:215px}
+.museum-atlas .layer-choices label{font-size:12px}
+.museum-atlas .atlas-orientation{bottom:161px;right:52px;color:#a99877;width:35px;font-size:9px}
+.museum-atlas .atlas-orientation svg{width:35px;height:35px}
+.museum-atlas .atlas-orientation svg>path{fill:#b3a385}
+.museum-atlas .a-attribution{padding:0 52px;bottom:14px;left:0;right:auto;gap:22px;max-width:65vw;color:#6f8a93;font-size:9px;height:26px}
+.museum-atlas .a-attribution button{color:#46605e;font-size:10px;text-decoration:none;min-height:30px}
+.museum-atlas .a-attribution button:hover{color:#176c78}
+.museum-atlas .a-attribution a{color:#46605e;text-decoration:none;font-size:9px}
+.museum-atlas .a-attribution a:hover{color:#176c78}
+.registan-app:has(.museum-atlas:not(.is-farm))>.registan-replay{bottom:20px;right:50px;min-height:32px;background:none;border:0;color:#46605e;font-size:10px;padding:5px 0}
+.museum-atlas .places-popover{top:92px;right:52px;background:#f5f3ec;border-color:#b69a6840;box-shadow:0 15px 45px #0004;color:#304b4b}
+.museum-atlas .places-popover .a-field span{color:#46605e;font-size:11px;font-weight:400}
+.museum-atlas .places-popover .a-field input{background:#ffffff;border-color:#78949d50;color:#243e42}
+.museum-atlas .places-scroll button{color:#304b4b;font-size:12px}
+.museum-atlas .places-scroll button:hover{background:#dde9e2}
+.museum-atlas .places-scroll button svg{color:#a68e63;width:16px;height:16px}
+.museum-atlas .a-place-sheet{right:52px;bottom:190px;padding:24px;max-width:285px;background:#f5f3ec;border:1px solid #a58f6155;box-shadow:0 15px 50px #0004;color:#304b4b}
+.museum-atlas .a-place-sheet h2{font-family:'Onest ARIQ',sans-serif;font-size:24px;font-weight:400;letter-spacing:-.025em;color:#243e42;margin:10px 0}
+.museum-atlas .a-place-sheet>p{font-size:11px;color:#46605e}
+.museum-atlas .a-place-sheet .evidence-tag{border-color:#a58f61;color:#91b0b5;font-size:10px}
+.museum-atlas .a-place-sheet .a-button{background:#176c78;border:0;color:#ffffff;min-height:45px;font-size:12px;box-shadow:none}
+.museum-atlas .a-place-sheet .a-note{font-size:10px;margin:14px 0 0;color:#46605e}
+.museum-atlas .a-place-sheet .panel-close{color:#476260}
+.museum-atlas .atlas-preparing,.museum-atlas .a-map-failure{background:radial-gradient(ellipse at 50% 50%,#e9e2d2,#d5cebe 70%);color:#304b4b}
+.museum-atlas .atlas-preparing .wordmark{color:#243e42;font-size:35px}
+.museum-atlas .atlas-preparing h2{font-family:'Onest ARIQ',sans-serif;font-size:15px;font-weight:400;letter-spacing:0;color:#46605e}
+.museum-atlas .atlas-preparing .text-button{color:#176c78;font-size:12px}
+.museum-atlas .atlas-preparing .a-button,.museum-atlas .a-map-failure .a-button{background:#176c78;border-color:#176c78;color:#f5f3ec}
+.museum-atlas.has-panel:not(.is-farm) .atlas-instruments,.museum-atlas.has-panel:not(.is-farm) .a-layers,.museum-atlas.has-panel:not(.is-farm) .atlas-orientation{display:none}
+.museum-atlas .a-workspace{bottom:60px}
+.museum-atlas .a-workspace.field-workspace{bottom:48px}
+.museum-atlas.is-farm .a-geography{bottom:48px}
+.museum-atlas .farmmap-wrap .farmmap.maplibregl-map{position:absolute;height:100%;width:100%}
+.museum-atlas .a-button,.museum-atlas summary{touch-action:manipulation}
+@media(max-width:760px){
+ .museum-atlas:not(.is-farm) .a-masthead{height:80px;margin:0 23px;gap:0}
+ .museum-atlas:not(.is-farm) .a-brand>span{font-size:29px}.museum-atlas:not(.is-farm) .a-brand>svg{width:24px;height:24px}
+ .museum-atlas:not(.is-farm) .a-breadcrumb{display:none}.museum-atlas:not(.is-farm) .a-preferences{gap:18px}
+ .museum-atlas:not(.is-farm) .a-masthead{flex-wrap:wrap;height:auto;min-height:80px;padding-bottom:8px}
+ .museum-atlas .a-lens-nav{order:3;flex:1 0 100%;margin:6px 0 0;justify-content:flex-start;overflow-x:auto;scrollbar-width:none}
+ .museum-atlas .a-lens-nav::-webkit-scrollbar{display:none}
+ .museum-atlas .a-lens-nav button{font-size:10px;padding:6px 10px;min-height:30px}
+ .museum-atlas:not(.is-farm) .a-preferences select{font-size:10px;min-width:67px;max-width:82px}
+ .museum-atlas .atlas-discover>summary{font-size:11px;gap:7px}.museum-atlas .atlas-discover>div{right:-75px}
+ .museum-atlas .atlas-primary{bottom:88px}.museum-atlas .atlas-primary .a-button{min-width:195px;height:50px;font-size:12px}
+ .museum-atlas .a-layers{left:24px;bottom:36px}.museum-atlas .a-layers>.a-button{font-size:10px}
+ .museum-atlas .atlas-instruments{right:23px;bottom:37px}.museum-atlas .atlas-secondary-tools>button{width:35px;height:35px}.museum-atlas .atlas-secondary-tools>button svg{width:16px;height:16px}
+ .museum-atlas .atlas-orientation{right:27px;bottom:97px;width:27px}.museum-atlas .atlas-orientation svg{width:27px;height:27px}
+ .museum-atlas .a-attribution{padding:0 24px;bottom:4px;max-width:70vw;gap:12px;font-size:7px}.museum-atlas .a-attribution button{font-size:8px}
+ .registan-app:has(.museum-atlas:not(.is-farm))>.registan-replay{right:23px;bottom:6px;font-size:8px;min-height:23px}
+ .museum-atlas .places-popover{right:20px;left:20px;top:85px;width:auto}
+ .museum-atlas .a-place-sheet{left:20px;right:20px;bottom:156px;max-width:none;padding:22px}.museum-atlas .a-place-sheet h2{font-size:23px}.museum-atlas .a-place-sheet .a-note{display:none}
+ .museum-atlas .a-workspace{bottom:40px}.museum-atlas .a-workspace.field-workspace{bottom:35px}
+ .museum-atlas.is-farm .a-geography{bottom:45%}
+}
+@media(prefers-reduced-motion:reduce){.museum-atlas *{transition:none!important;animation:none!important}}
+
+.museum-atlas select option{background:#f5f3ec;color:#243e42}
