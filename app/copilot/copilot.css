@@ -60,3 +60,32 @@
 .copilot-suggest{position:relative}
 .copilot-dismiss{position:absolute;right:2px;top:0;width:24px!important;height:24px;padding:0!important;text-align:center!important;background:transparent!important;border:0!important;color:#8a6d3b}
 
+/* Keep the next step readable; explanations stay available on request. */
+.copilot-panel{max-width:calc(100vw - 16px);max-height:calc(100dvh - 16px)}
+.copilot-panel>header,.copilot-form{flex-shrink:0}
+.copilot-panel>header{padding:8px}
+.copilot-id{min-width:0;gap:6px}.copilot-id>div{min-width:0}.copilot-id small{font-size:11px}
+.copilot-win{gap:0}.copilot-win button{width:44px;height:44px;flex-shrink:0}
+.copilot-guide{padding:16px 18px;background:#e8eeE7;border-bottom:1px solid #c9d5cb;overflow:auto;flex-shrink:0;max-height:40%}
+.copilot-guide strong{font-size:17px}.copilot-guide p{font-size:14px;line-height:1.55;margin:8px 0 0}
+.copilot-guide button{margin-top:12px;min-height:44px;padding:9px 14px;border:0;border-radius:7px;background:#173f49;color:#fff;font:600 14px 'Onest ARIQ',sans-serif;cursor:pointer}
+.copilot-scroll{min-height:0;overscroll-behavior:contain}
+.copilot-entry{display:flex;flex-direction:column;min-width:0;flex-shrink:0}.copilot-entry.user{align-items:flex-end}
+.copilot-turn{font-size:14px;overflow-wrap:anywhere}.copilot-turn small,.copilot-card small{font-size:12px}
+.copilot-suggest summary,.copilot-sharing summary{font-size:12px;cursor:pointer;min-height:44px;align-content:center;padding-right:36px}
+.copilot-suggest button{display:block;width:100%;margin-top:6px;font-size:13px;min-height:44px}
+.copilot-suggest .copilot-dismiss{width:44px!important;height:44px;margin:0}
+.copilot-sharing{padding:0 14px;border-top:1px solid #ddd5c6;max-height:30%;overflow:auto;flex-shrink:0;font-size:12px;line-height:1.5}
+.copilot-sharing p{margin:0 0 10px;overflow-wrap:anywhere}
+.copilot-launcher:focus-visible{outline:3px solid #177e91;outline-offset:3px}
+.copilot-form input{font-size:16px;min-height:44px}.copilot-form button,.copilot-actions button{min-height:44px}
+.copilot-form .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.copilot-panel.is-min .copilot-guide{display:none}
+@media(max-width:760px){
+ .copilot-panel,.copilot-panel.dock-left,.copilot-panel.dock-right{max-width:100%;max-height:calc(100dvh - 8px);height:min(72dvh,640px)!important}
+ .copilot-panel.is-min{height:auto!important}
+ .copilot-form{padding-bottom:max(10px,env(safe-area-inset-bottom))}
+ .copilot-win button:first-child{display:none}
+ .copilot-guide{padding:12px 16px}.copilot-guide strong{font-size:16px}
+}
+

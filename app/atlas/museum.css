@@ -90,3 +90,7 @@
 @media(prefers-reduced-motion:reduce){.museum-atlas *{transition:none!important;animation:none!important}}
 
 .museum-atlas select option{background:#f5f3ec;color:#243e42}
+.museum-atlas .atlas-discover .a-lens-nav{display:flex;flex-direction:column;align-items:stretch;margin:0;border:0;border-radius:0;padding:0;gap:0;overflow:visible}
+.museum-atlas .atlas-discover .a-lens-nav button{text-align:left;min-height:44px;white-space:normal;font-size:13px;border-radius:0}
+.museum-atlas .atlas-discover>div{max-width:calc(100vw - 32px)}
+@media(max-width:760px){.museum-atlas .atlas-primary{bottom:130px}.copilot-launcher{bottom:70px;min-height:44px}}

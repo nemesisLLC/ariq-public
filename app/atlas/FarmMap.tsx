@@ -5,6 +5,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import { rectangleRing, ringClosed, type LonLat } from './geo';
 import {text} from './copy';
 import type {Language} from '../../lib/i18n-labels';
+import {loadMapWater} from './mapWater';
 
 export type DrawMode = 'idle' | 'rect' | 'polygon' | 'edit';
 
@@ -33,6 +34,7 @@ export default function FarmMap({ center, farm, onFarmChange, onIdleClick,langua
   const changeRef=useRef(onFarmChange);changeRef.current=onFarmChange;
   const idleRef=useRef(onIdleClick);idleRef.current=onIdleClick;
   const [mapError,setMapError]=useState(false);
+  const [waterError,setWaterError]=useState(false);
   const commit=(ring:LonLat[]|null,kind:'rect'|'polygon')=>changeRef.current(ring,kind);
   const host = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapInstance | null>(null);
@@ -52,6 +54,8 @@ export default function FarmMap({ center, farm, onFarmChange, onIdleClick,langua
 
   useEffect(() => {
     let disposed = false; let map: MapInstance | undefined; let moveTimer: ReturnType<typeof setTimeout> | undefined;
+    let waterRequest: AbortController | undefined;
+    let waterRevision = 0;
     import('maplibre-gl').then(({ Map, NavigationControl, ScaleControl, setWorkerUrl }) => {
       if (disposed || !host.current) return;
       setWorkerUrl(new URL('maplibre-gl/dist/maplibre-gl-worker.mjs', import.meta.url).toString());
@@ -76,8 +80,8 @@ export default function FarmMap({ center, farm, onFarmChange, onIdleClick,langua
       map.addControl(new ScaleControl({unit:'metric',maxWidth:100}),'bottom-left');
       map.on('style.load', () => {
         if (!map) return;
-        map.addSource('farm-water', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } });
-        map.addLayer({ id: 'farm-water-lines', type: 'line', source: 'farm-water', filter: ['==', ['geometry-type'], 'LineString'], paint: { 'line-color': '#7fd4de', 'line-width': 2, 'line-opacity': 0.9 } });
+        map.addSource('farm-water', { type: 'geojson', tolerance: 0, data: { type: 'FeatureCollection', features: [] } });
+        map.addLayer({ id: 'farm-water-lines', type: 'line', source: 'farm-water', filter: ['==', ['geometry-type'], 'LineString'], layout: { 'line-cap': 'round', 'line-join': 'round' }, paint: { 'line-color': '#7fd4de', 'line-width': ['interpolate', ['linear'], ['zoom'], 5, 1, 13, 2, 18, 3], 'line-opacity': 0.8 } });
         map.addLayer({ id: 'farm-water-points', type: 'circle', source: 'farm-water', filter: ['==', ['geometry-type'], 'Point'], paint: { 'circle-radius': 4, 'circle-color': '#2f648f', 'circle-stroke-color': '#ffffff', 'circle-stroke-width': 1.2 } });
         map.addSource('farm-draw', { type: 'geojson', data: farmGeoJson(farmRef.current, [], false) });
         map.addLayer({ id: 'farm-fill', type: 'fill', source: 'farm-draw', filter: ['==', ['get', 'role'], 'farm'], paint: { 'fill-color': '#ba985e', 'fill-opacity': 0.28 } });
@@ -86,18 +90,26 @@ export default function FarmMap({ center, farm, onFarmChange, onIdleClick,langua
         setReady(true);
         loadWater();
       });
-      const loadWater = () => {
+      const loadWater = async () => {
         if (!map) return;
+        waterRequest?.abort();
+        const controller = waterRequest = new AbortController();
+        const revision = ++waterRevision;
         const b = map.getBounds();
-        const bbox = `${b.getWest()},${b.getSouth()},${b.getEast()},${b.getNorth()}`;
-        Promise.all([
-          fetch(`/api/water-data?format=geojson&bbox=${bbox}&kind=river&limit=400`).then((r) => r.json()).catch(() => ({ features: [] })),
-          fetch(`/api/water-data?format=geojson&bbox=${bbox}&kind=canal&limit=400`).then((r) => r.json()).catch(() => ({ features: [] })),
-          fetch(`/api/water-data?format=geojson&bbox=${bbox}&category=water-body&limit=200`).then((r) => r.json()).catch(() => ({ features: [] })),
-        ]).then(([rivers, canals, bodies]) => {
-          (map?.getSource('farm-water') as any)?.setData({ type: 'FeatureCollection', features: [...(rivers.features ?? []), ...(canals.features ?? []), ...(bodies.features ?? []).filter((f: any) => f.geometry?.type === 'Point')] });
-        });
+        // Fetch beyond the visible edges so small pans do not cut off nearby segments.
+        const dx=(b.getEast()-b.getWest())*.25,dy=(b.getNorth()-b.getSouth())*.25;
+        const bbox = `${Math.max(-180,b.getWest()-dx)},${Math.max(-90,b.getSouth()-dy)},${Math.min(180,b.getEast()+dx)},${Math.min(90,b.getNorth()+dy)}`;
+        try {
+          const data=await loadMapWater(bbox,controller.signal);
+          if(disposed||controller.signal.aborted||revision!==waterRevision)return;
+          (map.getSource('farm-water') as import('maplibre-gl').GeoJSONSource|undefined)?.setData(data);
+          setWaterError(false);
+        } catch {
+          // Preserve the last good overlay on failures; never flash an empty network.
+          if(!disposed&&!controller.signal.aborted&&revision===waterRevision)setWaterError(true);
+        }
       };
+      map.on('movestart',()=>{clearTimeout(moveTimer);waterRequest?.abort();waterRevision++;});
       map.on('moveend', () => { clearTimeout(moveTimer); moveTimer = setTimeout(loadWater, 350); });
       const lonLatOf = (e: any): LonLat => [e.lngLat.lng, e.lngLat.lat];
       const vertexAt = (e: any, ring: LonLat[]): number => {
@@ -191,7 +203,7 @@ export default function FarmMap({ center, farm, onFarmChange, onIdleClick,langua
       if (d.length >= 3) { pushHistory(); farmKindRef.current = 'polygon'; commit(d, 'polygon'); }
       setDraft([]); setMode('idle');
     };
-    return () => { disposed = true; clearTimeout(moveTimer); map?.remove(); mapRef.current = null; };
+    return () => { disposed = true; clearTimeout(moveTimer); waterRequest?.abort(); map?.remove(); mapRef.current = null; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -238,6 +250,7 @@ export default function FarmMap({ center, farm, onFarmChange, onIdleClick,langua
   return (
     <div className="farmmap-wrap">
       <div ref={host} className="farmmap" aria-label={t('selectFarm')} />
+      <details className="map-water-key"><summary>{language==='uz'?'Ko‘k chiziqlar':language==='ru'?'Синие линии':'Blue lines'}</summary><p>{language==='uz'?'Xaritada qayd etilgan suv yo‘llari; ayrimlari yetishmasligi mumkin. Ko‘k chiziq tugashi suv shu yerda tugashini bildirmaydi.':language==='ru'?'Нанесённые на карту водотоки; данные могут быть неполными. Конец синей линии не означает конец водотока.':'Mapped waterways; some are missing. A blue line ending does not mean the water ends there.'}</p>{waterError&&<p role="status">{language==='uz'?'Yangilash bajarilmadi. Xaritani siljitib qayta urinib ko‘ring.':language==='ru'?'Не удалось обновить слой. Переместите карту для повтора.':'The overlay could not refresh. Move the map to retry.'}</p>}</details>
       {mapError&&<div role="status" className="imagery-error">{language==='en'?'Some satellite tiles could not load. Check your connection or zoom out.':t('imageryError')} <button onClick={()=>{setMapError(false);(mapRef.current?.getSource('imagery') as import('maplibre-gl').RasterTileSource|undefined)?.setTiles(['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}']);}}>{t('retry')}</button></div>}
       {!readOnly&&<div className="draw-tools" role="group" aria-label={t('selectFarm')}>
         {(!farm||mode==='polygon'||mode==='rect')&&<>

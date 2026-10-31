@@ -10,6 +10,7 @@
  */
 export type CopilotContextSnapshot = {
   view: string;
+  units?: 'metric' | 'us';
   step?: number;
   cropId?: string;
   plantingDate?: string;
